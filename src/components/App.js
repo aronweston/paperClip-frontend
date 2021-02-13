@@ -1,5 +1,7 @@
-import NavBar from './components/NavBar'
+import NavBar from './NavBar'
+import Home from '../pages/Home'
 import { BrowserRouter, Route, Switch } from "react-router-dom"
+import '../app.css'
 
 //set up a pages directory in src
 // create pages directory << Landing.js << Login.js << SignUp.js << Home.js
@@ -11,8 +13,13 @@ import { BrowserRouter, Route, Switch } from "react-router-dom"
 function App() {
   return (
     <div className="App">
+
       <NavBar />
-      <h1>Welcome to paperClip</h1>
+
+      <div className="main-container">
+        <Home />
+      </div>
+
     </div>
   );
 }

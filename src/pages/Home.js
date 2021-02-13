@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import Platform from '../home/Platform'
 
-export class Home extends Component {
+class Home extends Component {
     render() {
         return (
-            <div>
-                
+            <div className="platform-container">
+              <Platform />
             </div>
         )
     }
