@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../assets/logo.svg'
 import Random from '../assets/random.svg'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (

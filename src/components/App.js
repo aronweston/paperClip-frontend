@@ -7,6 +7,7 @@ import SignUp from "../pages/SignUp";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "../app.css";
+import "../aron.css";
 
 //set up a pages directory in src
 // create pages directory << Landing.js << Login.js << SignUp.js << Home.js
@@ -25,7 +26,7 @@ function App() {
           <Route component={LogIn} path="/login" />
           
           <Route component={SignUp} path="/signup" />
-          <div class="main-container">
+          <div className="main-container">
             <Route component={Home} path="/home" />
           </div>
         </Switch>
