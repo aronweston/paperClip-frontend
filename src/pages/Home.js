@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import Platform from '../home/Platform'
+import React, { Component } from "react";
+import Platform from "../Home/Platform";
 
 class Home extends Component {
-    render() {
-        return (
-            <div className="platform-container">
-              <Platform />
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="platform-container">
+        <Platform />
+      </div>
+    );
+  }
 }
 
-export default Home
+export default Home;

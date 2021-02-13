@@ -1,7 +1,12 @@
-import NavBar from './NavBar'
-import Home from '../pages/Home'
-import { BrowserRouter, Route, Switch } from "react-router-dom"
-import '../app.css'
+import NavBar from "./NavBar";
+
+import Home from "../pages/Home";
+import Landing from "../pages/Landing";
+import LogIn from "../pages/LogIn";
+import SignUp from "../pages/SignUp";
+
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import "../app.css";
 
 //set up a pages directory in src
 // create pages directory << Landing.js << Login.js << SignUp.js << Home.js
@@ -13,13 +18,15 @@ import '../app.css'
 function App() {
   return (
     <div className="App">
-
       <NavBar />
-
-      <div className="main-container">
-        <Home />
-      </div>
-
+      <BrowserRouter>
+        <Switch>
+          <Route component={Landing} path="/" exact />
+          <Route component={LogIn} path="/login" />
+          <Route component={SignUp} path="/signup" />
+          <Route component={Home} path="/home" />
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
