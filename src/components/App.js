@@ -23,8 +23,11 @@ function App() {
         <Switch>
           <Route component={Landing} path="/" exact />
           <Route component={LogIn} path="/login" />
+          
           <Route component={SignUp} path="/signup" />
-          <Route component={Home} path="/home" />
+          <div class="main-container">
+            <Route component={Home} path="/home" />
+          </div>
         </Switch>
       </BrowserRouter>
     </div>
