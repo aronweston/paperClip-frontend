@@ -1,9 +1,10 @@
 import React from 'react';
 
-const JumpOutButton = () => {
+const JumpOutButton = (props) => {
+    console.log(props);
     return (
         <div>
-            <p>Jump Out Button</p>
+            <button className="btn btn-tertiary" onClick={props.jumpOut}> Jump Out Button</button>
         </div>
     );
 }

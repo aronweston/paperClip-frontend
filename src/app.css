@@ -46,6 +46,13 @@ nav {
 .header-title {
   font-size: var(--font-large);
   font-weight: 600;
+  display: inline-block;
+}
+
+.header-logo {
+  display: inline-block;
+  margin-right: 10px;
+  width: 40px;
 }
 
 .header-profile {
