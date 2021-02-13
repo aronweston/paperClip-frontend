@@ -153,3 +153,12 @@ li > a:hover {
   border-left: 4px solid var(--primary);
   width: 65%;
 }
+
+.clip-button-controls { 
+  padding: 1rem;
+}
+
+
+.temp {
+  padding: 1rem;
+}
