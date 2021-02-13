@@ -1,14 +1,25 @@
 import React from 'react';
 import Logo from '../logo.svg'
-import { Link } from 'react-browser-router'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
-        <header className="bg-white container mx-auto flex justify-between">
-        <div activeClassName="text-red" className="inline-flex items-center py-2 px-2 my-2 text-2xl"> <Link to="/home"></Link></div>
-        <div activeClassName="text-red" className="inline-flex items-center py-2 px-2 my-2  text-2xl">{ Logo }</div>
-        <div activeClassName="text-red" className="inline-flex items-center py-2 px-2 my-2 text-2xl">Menu</div>
-    </header> 
+      <nav>
+        <a className="header-cta btn btn-tertiary" href="/">
+          <button>
+            random chat
+            <svg className="btn-icon btn-icon-tertiary" viewBox="0 0 24 24">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+              <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>
+          </button>
+        </a>
+        <a className="header-title" href="/">
+          <div className="header-logo"></div>
+          paperClip
+        </a>
+        <a className="header-profile btn btn-primary" href="/">profile</a>
+      </nav>
     );
 }
 
