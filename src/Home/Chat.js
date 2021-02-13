@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ChatMessage from './Chat/ChatMessage'
 import ChatInput from './Chat/ChatInput'
 import JumpOutButton from './Chat/JumpOutButton'
+import Send from '../assets/send.svg'
 
 export class Chat extends Component {
     constructor() {
@@ -30,20 +31,18 @@ export class Chat extends Component {
         this.setState({chatInput: e.target.value})
     }
 
-
     render() {
         return (
             <div>
                 <p> Chat </p>
-               
-                <form onSubmit={this._handleChatSend}>
+                <form id="message-form" onSubmit={this._handleChatSend}>
                     <label htmlFor="message-input">
-                        <input type="text" name="message-input" onChange={this._handleChatInputChange} placeholder="What's on your mind?" value={this.state.chatInput} />
+                        <textarea row="4" className="message-input" type="text" name="message-input" onChange={this._handleChatInputChange} placeholder="What's on your mind?" value={this.state.chatInput} />
                     </label>
-                    <button className="btn">Send Chat</button>
+                    <button className="send-button"><img src={Send} alt=""/></button>
                 </form>
-                 <ChatMessage />
-                <ChatInput />
+                {/* <ChatMessage />
+                <ChatInput /> */}
                 <JumpOutButton onClick={this._jumpOut} />
             </div>
         )
