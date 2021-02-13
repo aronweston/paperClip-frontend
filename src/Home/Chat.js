@@ -20,13 +20,10 @@ export class Chat extends Component {
     render() {
         return (
             <div>
-                <p> Chat</p>
-                <div className="temp">
-                    <ChatMessage />
-                    <ChatInput />
-                    <JumpOutButton onClick={this._jumpOut} />
-                </div>
-               
+                <p> Chat </p>
+                <ChatMessage />
+                <ChatInput />
+                <JumpOutButton onClick={this._jumpOut} />
             </div>
         )
     }
