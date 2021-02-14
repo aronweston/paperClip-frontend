@@ -11,7 +11,7 @@ class Home extends Component {
   render() {
     return (
       <>
-      <h1>Status: {this.props.loggedInStatus}</h1>
+      <h2>Status: {this.props.loggedInStatus}</h2>
       <div className="platform-container">
         <Platform />
       </div>

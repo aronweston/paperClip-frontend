@@ -8,7 +8,7 @@ import "../aron.css";
 import NavBar from "./NavBar";
 import Home from "../pages/Home";
 import Landing from "../pages/Landing";
-import Login from "../pages/Login";
+import Login from "../pages/LogIn";
 
 const SERVER_URL = "http://localhost:3000/logged_in";
 
@@ -71,8 +71,8 @@ class App extends Component {
         <NavBar login={this.state.loggedInStatus} />
         <BrowserRouter>
           <Switch>
-            <Route render={(props) => <Login {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/login"} />
             <div className="main-container">
+              <Route render={(props) => <Login {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/login"} />
               <Route exact path={"/"} render={(props) => <Home {...props} loggedInStatus={this.state.loggedInStatus} />} />
             </div>
             <Route component={Landing} path="/landing" exact />
@@ -81,9 +81,7 @@ class App extends Component {
       </div>
     );
   }
-  
+
 }
 
 export default App;
-
-

@@ -35,13 +35,12 @@ export class Login extends Component {
 
 	render() {
 		return (
-			<>
-				<h1>Home</h1>
-				<h1>Status: {this.props.loggedInStatus}</h1>
-				<button onClick={() => this.handleLogoutClick()}>Logout</button>
+			<div className="login-signup-container">
+				<h2>Status: {this.props.loggedInStatus}</h2>
 				<Registration handleSuccessfulAuth={this.handleSuccessfulAuth} />
 				<LoginAuth handleSuccessfulAuth={this.handleSuccessfulAuth} />
-			</>
+        <a className="btn btn-primary" onClick={() => this.handleLogoutClick()}>logout</a>
+			</div>
 		);
 	}
 }

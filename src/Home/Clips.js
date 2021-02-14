@@ -10,20 +10,20 @@ export class Clips extends Component {
         this.state = {
             user: true
         }
-    } 
- 
+    }
+
     render() {
         return (
             <div>
                 <p>Clips</p>
-                <div className="temp">
+                <div className="clip">
                     <Clip />
                     <div className="clip-button-controls">
-                        {this.state.user ? 
+                        {this.state.user ?
                             <RemoveClip />
                             :
                             <CreateClip />
-                        }     
+                        }
                         <CreateChat />
                     </div>
                 </div>

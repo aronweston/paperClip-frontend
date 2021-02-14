@@ -53,7 +53,8 @@ export class LoginAuth extends Component {
 
 	render() {
 		return (
-			<div>
+			<>
+				<h1>Login</h1>
 				<form onSubmit={this.handleSubmit}>
 					<input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleChange} required />
 					{/* <input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required /> */}
@@ -61,7 +62,7 @@ export class LoginAuth extends Component {
 					<button type="submit">Login</button>
 					<p>Test with user:<strong> ac</strong> and password: <strong>chicken</strong></p>
 				</form>
-			</div>
+			</>
 		);
 	}
 }
