@@ -107,6 +107,10 @@ nav {
   border: 2px solid var(--tertiary);
 }
 
+.btn-tertiary:hover img {
+  fill: black;
+}
+
 .btn-icon {
   height: 20px;
   margin-left: 8px;
@@ -115,7 +119,7 @@ nav {
 }
 
 .btn-icon-tertiary {
-  fill: var(--secondary);
+  fill: var(--tertiary);
 }
 
 .btn-icon-tertiary:hover {
