@@ -4,11 +4,11 @@ import axios from "axios";
 import "../app.css";
 import "../aron.css";
 
+//Pages & Components
 import NavBar from "./NavBar";
 import Home from "../pages/Home";
 import Landing from "../pages/Landing";
 import Login from "../pages/Login";
-// import Dashboard from "../pages/Dashboard";
 
 const SERVER_URL = "http://localhost:3000/logged_in";
 
@@ -19,7 +19,7 @@ class App extends Component {
 
 		this.state = {
 			loggedInStatus: "NOT_LOGGED_IN",
-			user: {},
+      user: {}
 		};
 
 		this.handleLogin = this.handleLogin.bind(this);
@@ -38,7 +38,7 @@ class App extends Component {
 				} else if (!response.data.logged_in && this.state.loggedInStatus === "LOGGED_IN") {
 					this.setState({
 						loggedInStatus: "NOT_LOGGED_IN",
-						user: {},
+            user: {},
 					});
 				}
 			})
@@ -54,28 +54,28 @@ class App extends Component {
 	handleLogout() {
 		this.setState({
 			loggedInStatus: "NOT_LOGGED_IN",
-			user: {},
+			user: {}
 		});
 	}
 
 	handleLogin(data) {
 		this.setState({
 			loggedInStatus: "LOGGED_IN",
-			user: data.user,
+			user: data.user
 		});
 	}
 
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <NavBar login={this.state.loggedInStatus} />
         <BrowserRouter>
           <Switch>
             <Route render={(props) => <Login {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/login"} />
             <div className="main-container">
-              <Route exact path={"/home"} render={(props) => <Home {...props} loggedInStatus={this.state.loggedInStatus} />} />
+              <Route exact path={"/"} render={(props) => <Home {...props} loggedInStatus={this.state.loggedInStatus} />} />
             </div>
-            <Route component={Landing} path="/" exact />
+            <Route component={Landing} path="/landing" exact />
           </Switch>
         </BrowserRouter>
       </div>

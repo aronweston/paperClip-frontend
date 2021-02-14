@@ -10,10 +10,12 @@ class Home extends Component {
 
   render() {
     return (
+      <>
+      <h1>Status: {this.props.loggedInStatus}</h1>
       <div className="platform-container">
-        <h1>Status: {this.props.loggedInStatus}</h1>
         <Platform />
       </div>
+      </>
     );
   }
 }
