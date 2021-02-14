@@ -1,0 +1,35 @@
+.btn.full-width {
+    width: 100%;
+}
+
+input:focus, button:focus {
+    outline: none;
+}
+
+textarea:focus {
+    outline: 0
+}
+
+#message-form {
+    display: flex;
+    /* align-content: stretch; */
+    
+}
+
+.message-input {
+    flex-grow: 3;
+    width: 100%;
+    background-color: var(--secondary);
+    color: var(--primary);
+    transition: 0.25s;
+    padding: 1rem;
+    border: 5px solid var(--primary);
+    border-radius: 20px;
+}
+   
+.send-button{
+    background-color: var(--primary);
+    padding: 1rem;
+    border-radius: 20px;
+    margin-left: 5px;
+}
