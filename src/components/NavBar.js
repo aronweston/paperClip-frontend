@@ -18,7 +18,7 @@ const NavBar = (props) => {
         <img className="header-logo" src={ Logo } />
         paperClip
       </a>
-      <a className="header-profile btn btn-primary" href="/">{ props.login ? "logged in" : "login" }</a>
+      <a className="header-profile btn btn-primary" href="/">{ props.login === "LOGGED_IN" ? "logged in" : "login" }</a>
     </nav>
   );
 }
