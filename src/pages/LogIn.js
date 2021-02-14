@@ -19,7 +19,7 @@ export class Login extends Component {
 		this.props.handleLogin(data);
 
 		// this is to handle redirection after a successful login
-		this.props.history.push("/dashboard"); //history is a prop from react router
+		this.props.history.push("/"); //history is a prop from react router
 	}
 
 	handleLogoutClick() {
