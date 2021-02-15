@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ActionCableProvider } from 'react-actioncable-provider';
 import App from './components/App';
 import './app.css'
+import registerServiceWorker from './registerServiceWorker';
+import { API_WS_ROOT } from './constants';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ActionCableProvider url={API_WS_ROOT}>
     <App />
-  </React.StrictMode>,
+  </ActionCableProvider>,
   document.getElementById('root')
 );
+registerServiceWorker();

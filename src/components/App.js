@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ConversationsList from './ConversationsList';
 import { Redirect, BrowserRouter, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import "../app.css";
@@ -77,12 +78,14 @@ class App extends Component {
           <Switch>
             <Route component={Landing} path="/landing" exact />
             <div className="main-container">
-			
-			<Route render={(props) => <Login {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/login"} />
-						
+
+            <Route component={ConversationsList} path="/conversations" exact />
+
+      			<Route render={(props) => <Login {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/login"} />
+
             <Route render={(props) => <SignUp {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/signup"} />
-			  
-			<Route exact path={"/"} render={(props) => <Home {...props} loggedInStatus={this.state.loggedInStatus} />} />				
+
+      			<Route exact path={"/"} render={(props) => <Home {...props} loggedInStatus={this.state.loggedInStatus} />} />
             </div>
           </Switch>
         </BrowserRouter>
