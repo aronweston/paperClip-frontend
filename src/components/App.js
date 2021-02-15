@@ -77,6 +77,7 @@ class App extends Component {
           <Switch>
             <Route component={Landing} path="/landing" exact />
             <div className="main-container">
+			
 			<Route render={(props) => <Login {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/login"} />
 						
             <Route render={(props) => <SignUp {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/signup"} />

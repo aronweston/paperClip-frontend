@@ -158,7 +158,7 @@ h1 {
 }
 
 .btn-icon-tertiary {
-  fill: var(--tertiary);
+  fill: var(--secondary);
 }
 
 .btn-tertiary:hover svg {
