@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import "../app.css";
 import "../aron.css";
@@ -67,6 +67,7 @@ class App extends Component {
 			loggedInStatus: "LOGGED_IN",
 			user: data.user
 		});
+
 	}
 
   render() {

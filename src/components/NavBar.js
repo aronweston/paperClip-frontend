@@ -1,25 +1,11 @@
 import React, {Component} from 'react';
 import Logo from '../assets/logo.svg'
+import LoginController from './LoginController'
 // import Random from '../assets/random.svg'
 import axios from 'axios'
-// import { Link } from 'react-router-dom'
 
 
 class NavBar extends Component {
-  constructor(props) {
-    super(props)
-    this.SERVER_URL = "http://localhost:3000/logout";
-  }
-
-  handleLogoutClick () {
-    axios
-      .delete(this.SERVER_URL, { withCredentials: true })
-      .then(this.props.handleLogout())
-      .catch((error) => {
-        console.log("logout error", error);
-      });
-  }
-
   render() {
     return (
       <nav>
@@ -36,8 +22,7 @@ class NavBar extends Component {
         paperClip
       </a>
         <div className="header-profile">
-          <a className="btn btn-primary" href="/login">{this.props.login === this.props.login ? `Hi,${this.props.user.username}` : "login"}</a>
-          <a className="btn btn-primary" onClick={() => this.handleLogoutClick()}>Logout</a>
+          <LoginController login={this.props.login} user={this.props.user} handleLogout={this.props.handleLogout}/>
         </div>
       </nav>
     );
