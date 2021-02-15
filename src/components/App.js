@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import "../app.css";
 import "../aron.css";
@@ -39,7 +39,7 @@ class App extends Component {
 				} else if (!response.data.logged_in && this.state.loggedInStatus === "LOGGED_IN") {
 					this.setState({
 						loggedInStatus: "NOT_LOGGED_IN",
-            user: {},
+            			user: {},
 					});
 				}
 			})
@@ -57,9 +57,7 @@ class App extends Component {
 			loggedInStatus: "NOT_LOGGED_IN",
 			user: {}
 		});
-		// <Route exact path="/landing">
-		// 	<Redirect push to="/landing" />
-		// </Route>
+		window.location.href = "/landing";
 	}
 
 	handleLogin(data) {
@@ -67,7 +65,6 @@ class App extends Component {
 			loggedInStatus: "LOGGED_IN",
 			user: data.user
 		});
-
 	}
 
   render() {
@@ -82,7 +79,7 @@ class App extends Component {
 			<Route render={(props) => <Login {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/login"} />
 						
             <Route render={(props) => <SignUp {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/signup"} />
-			  
+					
 			<Route exact path={"/"} render={(props) => <Home {...props} loggedInStatus={this.state.loggedInStatus} />} />				
             </div>
           </Switch>

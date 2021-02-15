@@ -9,14 +9,18 @@ class Home extends Component {
   }
 
   render() {
-    return (
-      <>
-      <h2>Status: {this.props.loggedInStatus}</h2>
-      <div className="platform-container">
-        <Platform />
-      </div>
-      </>
-    );
+    if(this.props.loggedInStatus === "NOT_LOGGED_IN") {
+      window.location.href = "/login";
+    } else {
+      return (
+        <>
+        <h2>Status: {this.props.loggedInStatus}</h2>
+        <div className="platform-container">
+          <Platform />
+        </div>
+        </>
+      );
+    }   
   }
 }
 

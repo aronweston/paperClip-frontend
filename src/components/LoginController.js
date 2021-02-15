@@ -9,7 +9,7 @@ export class LoginController extends Component {
 
     handleLogoutClick = () => {
         axios.delete(this.SERVER_URL, { withCredentials: true })
-        .then(this.props.handleLogout)
+            .then(this.props.handleLogout)
         .catch((error) => {
             console.log("logout error", error);
         });
@@ -21,12 +21,10 @@ export class LoginController extends Component {
             return null
        } else {
         if (this.props.login === "LOGGED_IN") {
-           
         //only show the login profile
         return (
             <div>
                 <a className="btn btn-primary">{this.props.login === this.props.login ? `Hi,${this.props.user.username}` : "login"}</a>
-                
                 <button className="btn btn-primary" onClick={() => this.handleLogoutClick()}>Logout</button>
             </div>
         )

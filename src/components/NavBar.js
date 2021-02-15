@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Logo from '../assets/logo.svg'
 import LoginController from './LoginController'
 // import Random from '../assets/random.svg'
-import axios from 'axios'
 
 
 class NavBar extends Component {
