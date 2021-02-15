@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import LoginAuth  from "../auth/LoginAuth";
+import Registration from "../auth/Registration";
 
 const SERVER_URL = "http://localhost:3000/logout";
 
-export class Login extends Component {
+export class SignUp extends Component {
 	constructor(props) {
 		super(props);
 
@@ -24,7 +24,9 @@ export class Login extends Component {
 	handleLogoutClick() {
 		axios
 			.delete(SERVER_URL, { withCredentials: true })
-			.then(this.props.handleLogout())
+			.then((response) => {
+				this.props.handleLogout();
+			})
 			.catch((error) => {
 				console.log("logout error", error);
 			});
@@ -34,11 +36,10 @@ export class Login extends Component {
 		return (
 			<div className="login-signup-container">
 				<h2>Status: {this.props.loggedInStatus}</h2>
-				<LoginAuth handleSuccessfulAuth={this.handleSuccessfulAuth} />
-        		<a className="btn btn-primary" onClick={() => this.handleLogoutClick()}>logout</a>
+				<Registration handleSuccessfulAuth={this.handleSuccessfulAuth} />
 			</div>
 		);
 	}
 }
 
-export default Login;
+export default SignUp;

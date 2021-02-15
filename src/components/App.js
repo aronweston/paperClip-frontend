@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Redirect, BrowserRouter, Route, Switch } from "react-router-dom";
 import axios from "axios";
 import "../app.css";
 import "../aron.css";
@@ -9,6 +9,7 @@ import NavBar from "./NavBar";
 import Home from "../pages/Home";
 import Landing from "../pages/Landing";
 import Login from "../pages/LogIn";
+import SignUp from "../pages/SignUp";
 
 const SERVER_URL = "http://localhost:3000/logged_in";
 
@@ -19,7 +20,7 @@ class App extends Component {
 
 		this.state = {
 			loggedInStatus: "NOT_LOGGED_IN",
-      user: {}
+      		user: {}
 		};
 
 		this.handleLogin = this.handleLogin.bind(this);
@@ -56,6 +57,9 @@ class App extends Component {
 			loggedInStatus: "NOT_LOGGED_IN",
 			user: {}
 		});
+		// <Route exact path="/landing">
+		// 	<Redirect push to="/landing" />
+		// </Route>
 	}
 
 	handleLogin(data) {
@@ -68,14 +72,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar login={this.state.loggedInStatus} />
+			<NavBar login={this.state.loggedInStatus} handleLogout={this.handleLogout} handleLogoutClick={this.handleLogoutClick} user={this.state.user}/>
         <BrowserRouter>
           <Switch>
-            <div className="main-container">
-              <Route render={(props) => <Login {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/login"} />
-              <Route exact path={"/"} render={(props) => <Home {...props} loggedInStatus={this.state.loggedInStatus} />} />
-            </div>
             <Route component={Landing} path="/landing" exact />
+            <div className="main-container">
+			<Route render={(props) => <Login {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/login"} />
+						
+            <Route render={(props) => <SignUp {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/signup"} />
+			  
+			<Route exact path={"/"} render={(props) => <Home {...props} loggedInStatus={this.state.loggedInStatus} />} />				
+            </div>
           </Switch>
         </BrowserRouter>
       </div>
