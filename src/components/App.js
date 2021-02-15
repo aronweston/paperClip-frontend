@@ -1,38 +1,95 @@
-import NavBar from "./NavBar";
-
-import Home from "../pages/Home";
-import Landing from "../pages/Landing";
-import LogIn from "../pages/LogIn";
-import SignUp from "../pages/SignUp";
-
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { Component } from "react";
+import { Redirect, BrowserRouter, Route, Switch } from "react-router-dom";
+import axios from "axios";
 import "../app.css";
 import "../aron.css";
 
-//set up a pages directory in src
-// create pages directory << Landing.js << Login.js << SignUp.js << Home.js
-// set up browser router
-// set up switch component with nested routes
-// in the routes, define the component ={component}
-// path="/"
+//Pages & Components
+import NavBar from "./NavBar";
+import Home from "../pages/Home";
+import Landing from "../pages/Landing";
+import Login from "../pages/LogIn";
+import SignUp from "../pages/SignUp";
 
-function App() {
-  return (
-    <div className="App">
-      <NavBar />
-      <BrowserRouter>
-        <Switch>
-          <Route component={Landing} path="/" exact />
-          <Route component={LogIn} path="/login" />
-          
-          <Route component={SignUp} path="/signup" />
-          <div className="main-container">
-            <Route component={Home} path="/home" />
-          </div>
-        </Switch>
-      </BrowserRouter>
-    </div>
-  );
+const SERVER_URL = "http://localhost:3000/logged_in";
+
+class App extends Component {
+
+  constructor() {
+		super();
+
+		this.state = {
+			loggedInStatus: "NOT_LOGGED_IN",
+      		user: {}
+		};
+
+		this.handleLogin = this.handleLogin.bind(this);
+		this.handleLogout = this.handleLogout.bind(this);
+	}
+
+	checkLoginStatus() {
+		axios
+			.get(SERVER_URL, { withCredentials: true })
+			.then((response) => {
+				if (response.data.logged_in && this.state.loggedInStatus === "NOT_LOGGED_IN") {
+					this.setState({
+						loggedInStatus: "LOGGED_IN",
+						user: response.data.user,
+					});
+				} else if (!response.data.logged_in && this.state.loggedInStatus === "LOGGED_IN") {
+					this.setState({
+						loggedInStatus: "NOT_LOGGED_IN",
+            user: {},
+					});
+				}
+			})
+			.catch((error) => {
+				console.log("check login error", error);
+			});
+	}
+
+	componentDidMount() {
+		this.checkLoginStatus();
+	}
+
+	handleLogout() {
+		this.setState({
+			loggedInStatus: "NOT_LOGGED_IN",
+			user: {}
+		});
+		// <Route exact path="/landing">
+		// 	<Redirect push to="/landing" />
+		// </Route>
+	}
+
+	handleLogin(data) {
+		this.setState({
+			loggedInStatus: "LOGGED_IN",
+			user: data.user
+		});
+	}
+
+  render() {
+    return (
+      <div className="App">
+			<NavBar login={this.state.loggedInStatus} handleLogout={this.handleLogout} handleLogoutClick={this.handleLogoutClick} user={this.state.user}/>
+        <BrowserRouter>
+          <Switch>
+            <Route component={Landing} path="/landing" exact />
+            <div className="main-container">
+			
+			<Route render={(props) => <Login {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/login"} />
+						
+            <Route render={(props) => <SignUp {...props} handleLogin={this.handleLogin} handleLogout={this.handleLogout} loggedInStatus={this.state.loggedInStatus} />} exact path={"/signup"} />
+			  
+			<Route exact path={"/"} render={(props) => <Home {...props} loggedInStatus={this.state.loggedInStatus} />} />				
+            </div>
+          </Switch>
+        </BrowserRouter>
+      </div>
+    );
+  }
+
 }
 
 export default App;

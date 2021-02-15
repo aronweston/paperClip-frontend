@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import ChatMessage from './Chat/ChatMessage'
+import ChatMessageUser from './Chat/ChatMessageUser'
+import ChatMessageRecipient from './Chat/ChatMessageRecipient'
 import ChatInput from './Chat/ChatInput'
 import JumpOutButton from './Chat/JumpOutButton'
 import Send from '../assets/send.svg'
@@ -25,7 +26,7 @@ export class Chat extends Component {
         e.preventDefault();
         console.log(this.state.chatInput);
         this.setState({chatInput: ''})
-    } 
+    }
 
     _handleChatInputChange(e) {
         this.setState({chatInput: e.target.value})
@@ -33,18 +34,18 @@ export class Chat extends Component {
 
     render() {
         return (
-            <div>
-                <p> Chat </p>
-                <form id="message-form" onSubmit={this._handleChatSend}>
-                    <label htmlFor="message-input">
-                        <textarea row="4" className="message-input" type="text" name="message-input" onChange={this._handleChatInputChange} placeholder="What's on your mind?" value={this.state.chatInput} />
-                    </label>
-                    <button className="send-button"><img src={Send} alt=""/></button>
-                </form>
-                {/* <ChatMessage />
-                <ChatInput /> */}
-                <JumpOutButton onClick={this._jumpOut} />
-            </div>
+          <div className="chat">
+            <p>Chat</p>
+            <ChatMessageRecipient />
+            <ChatMessageUser />
+            <form id="message-form" onSubmit={this._handleChatSend}>
+              <textarea className="message-input" type="text" name="message-input" onChange={this._handleChatInputChange} placeholder="What's on your mind?" value={this.state.chatInput} />
+              <button className="send-button"><img className="send-icon" src={Send} alt="Send Message"/></button>
+            </form>
+            {/*
+            <ChatInput /> */}
+            <JumpOutButton onClick={this._jumpOut} />
+          </div>
         )
     }
 }
