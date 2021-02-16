@@ -64,7 +64,7 @@ class App extends Component {
       loggedInStatus: 'NOT_LOGGED_IN',
       user: {},
     });
-    window.location.href = '/landing';
+    return <Redirect to='/landing' />;
   }
 
   handleLogin(data) {

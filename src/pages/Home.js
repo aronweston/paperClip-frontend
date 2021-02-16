@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import Platform from '../home/Platform';
 import axios from 'axios';
 
@@ -20,7 +21,7 @@ class Home extends Component {
 
   render() {
     if (this.props.loggedInStatus === 'NOT_LOGGED_IN') {
-      window.location.href = '/login';
+      return <Redirect to='/login' />;
     } else {
       return (
         <>
