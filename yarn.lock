@@ -2188,7 +2188,7 @@
   "resolved" "https://registry.yarnpkg.com/acorn/-/acorn-6.4.2.tgz"
   "version" "6.4.2"
 
-"actioncable@^5.0.0":
+"actioncable@^5.0.0", "actioncable@^5.2.4":
   "integrity" "sha512-2mCP0eKTjxtDWNPqP6xPar9a5i8F/pndrTHJGU6QDS1a77B+DlPEWzPRiyNAaNEGMY/9yTBOP3CXhR+8/zaVQw=="
   "resolved" "https://registry.npmjs.org/actioncable/-/actioncable-5.2.4.tgz"
   "version" "5.2.4"

@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ActionCableProvider } from 'react-actioncable-provider';
 import App from './components/App';
-import './app.css'
-import registerServiceWorker from './registerServiceWorker';
-import { API_WS_ROOT } from './constants';
+import './app.css';
+import { ActionCableProvider } from 'react-actioncable-provider';
+
+import ActionCable from 'actioncable';
+const cable = ActionCable.createConsumer('ws://localhost:3000/cable');
 
 ReactDOM.render(
-  <ActionCableProvider url={API_WS_ROOT}>
+  <ActionCableProvider cable={cable}>
     <App />
   </ActionCableProvider>,
   document.getElementById('root')
 );
-registerServiceWorker();
