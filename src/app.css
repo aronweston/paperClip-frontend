@@ -9,12 +9,12 @@
   --tertiary-rgb: 219, 39, 33;
 
   --font-large: 26px;
-  --font-medium: 16px;
+  --font-medium: 14px;
   --font-normal: 12px;
   --font-small: 9px;
 
-  --line-thick: 5px;
-  --line-medium: 4px;
+  --line-thick: 4px;
+  --line-medium: 3px;
   --line-thin: 2px;
 }
 
@@ -26,6 +26,7 @@ html, body, #root {
   box-sizing: border-box;
   font-family: 'Space Mono', monospace;
   font-size: var(--font-normal);
+  cursor: url('./assets/cursor.svg'), default;
 }
 
 .App {
@@ -77,13 +78,26 @@ h1 {
   margin: 20px 0 20px 0;
 }
 
+a {
+  cursor: url('./assets/cursor-pointer.svg'), pointer;
+}
+
+
 /* ------- Buttons ------- */
 
 .btn {
-  padding: 8px 20px;
+  padding: 6px 18px;
   margin: 0;
   border-radius: 30px;
   font-size: var(--font-medium);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: url('./assets/cursor-pointer.svg'), pointer;
 }
 
 .header-profile > a {
@@ -93,14 +107,14 @@ h1 {
 .btn-primary {
   background-color: var(--primary);
   color: var(--secondary);
-  border: 2px solid var(--primary);
+  border: var(--line-thick) solid var(--primary);
   transition: 0.25s;
 }
 
 .btn-primary:hover {
   background-color: var(--secondary);
   color: var(--primary);
-  border: 2px solid var(--primary);
+  border: var(--line-thick) solid var(--primary);
 }
 
 .btn-primary:hover svg {
@@ -110,14 +124,14 @@ h1 {
 .btn-secondary {
   background-color: var(--secondary);
   color: var(--primary);
-  border: 2px solid var(--secondary);
+  border: var(--line-thick) solid var(--secondary);
   transition: 0.25s;
 }
 
 .btn-secondary:hover {
   background-color: var(--primary);
   color: var(--secondary);
-  border: 2px solid var(--secondary);
+  border: var(--line-thick) solid var(--secondary);
 }
 
 .btn-secondary:hover svg {
@@ -127,7 +141,7 @@ h1 {
 .btn-tertiary {
   background-color: var(--tertiary);
   color: var(--secondary);
-  border: 2px solid var(--tertiary);
+  border: var(--line-thick) solid var(--tertiary);
   transition: 0.25s;
   fill: var(--secondary);
 }
@@ -135,11 +149,7 @@ h1 {
 .btn-tertiary:hover {
   background-color: var(--secondary);
   color: var(--tertiary);
-  border: 2px solid var(--tertiary);
-}
-
-.btn-tertiary:hover img {
-  fill: black;
+  border: var(--line-thick) solid var(--tertiary);
 }
 
 .btn-icon {
@@ -212,7 +222,7 @@ li > a:hover {
   height: 100%;
   padding: 0px;
   background-color: var(--secondary);
-  border: 4px solid var(--primary);
+  border: var(--line-thick) solid var(--primary);
   border-radius: 30px;
   -webkit-box-shadow: 12px 18px 30px 0px  rgba(var(--primary-rgb), 0.3);  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
   -moz-box-shadow: 12px 18px 30px 0px  rgba(var(--primary-rgb), 0.3);  /* Firefox 3.5 - 3.6 */
@@ -226,9 +236,31 @@ li > a:hover {
 
 .main-panel-container {
   padding: 6px;
-  border-left: 4px solid var(--primary);
+  border-left: var(--line-thick) solid var(--primary);
   width: 65%;
   overflow: hidden;
+  position: relative;
+}
+
+.chat-messages-container {
+ height: 100%;
+ width: 100%;
+}
+
+.content {
+  height: calc(100% - 170px);
+  overflow: auto;
+}
+
+.chat-absolute-container {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 6px;
+  width: 100%;
+  height: 170px;
+  border-radius: 0px 0px 30px 0px;
+  background-color: var(--secondary);
 }
 
 
@@ -265,11 +297,11 @@ li > a:hover {
   font-family: 'Space Mono', monospace;
   font-size: var(--font-medium);
   outline: none;
-  border: 2px solid var(--tertiary);
+  border: var(--line-thick) solid var(--tertiary);
   padding: 8px 30px;
   margin: 10px 0;
   border-radius: 20px;
-  cursor: pointer;
+  cursor: url('./assets/cursor-pointer.svg'), pointer;
   transition: 0.25s;
   width: 50%;
 }
@@ -291,7 +323,7 @@ li > a:hover {
   color: var(--primary);
   transition: 0.25s;
   padding: 10px 15px;
-  border: 4px solid var(--primary);
+  border: var(--line-thick) solid var(--primary);
   border-radius: 20px;
   height: 90px;
   margin-right: 2px;
@@ -319,6 +351,7 @@ textarea {
   outline: none;
 }
 
+
 /* ------- Chat Messages ------- */
 
 .chat-row-user {
@@ -340,7 +373,7 @@ textarea {
   color: var(--primary);
   transition: 0.25s;
   padding: 12px 15px;
-  border: 4px solid var(--primary);
+  border: var(--line-thick) solid var(--primary);
   border-radius: 20px 20px 20px 0;
   margin: 10px 2px 10px 0px;
 }
@@ -351,7 +384,7 @@ textarea {
   color: var(--secondary);
   transition: 0.25s;
   padding: 12px 15px;
-  border: 4px solid var(--primary);
+  border: var(--line-thick) solid var(--primary);
   border-radius: 20px 20px 0px 20px;
   /* margin: 0 0 0 20%; */
 }
@@ -380,7 +413,7 @@ textarea {
   color: var(--primary);
   transition: 0.25s;
   padding: 12px 15px;
-  border: 4px solid var(--primary);
+  border: var(--line-thick) solid var(--primary);
   border-radius: 20px;
   margin: 10px 2px 10px 0px;
 }
@@ -406,6 +439,7 @@ textarea {
 
 ::-webkit-scrollbar {
   width: 12px;
+  margin-left: 100px;
 }
 
 ::-webkit-scrollbar-track {
@@ -414,9 +448,12 @@ textarea {
 }
 
 ::-webkit-scrollbar-thumb {
+  background-clip: content-box;
+  border: 3px solid transparent;
   border-radius: 10px;
   background-color: var(--primary);
   margin-right: 5px;
+  cursor: grab;
 }
 
 ::-moz-selection {
