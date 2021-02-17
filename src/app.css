@@ -29,7 +29,7 @@ body,
   box-sizing: border-box;
   font-family: "Space Mono", monospace;
   font-size: var(--font-normal);
-  cursor: url('./assets/cursor.svg'), default;
+  cursor: url("./assets/cursor.svg"), default;
 }
 
 .App {
@@ -81,20 +81,16 @@ h1 {
   margin: 20px 0 20px 0;
 }
 
-<<<<<<< HEAD
 h3 {
   font-size: var(--font-large);
   text-align: center;
   margin-bottom: 40px;
 }
 
-=======
 a {
-  cursor: url('./assets/cursor-pointer.svg'), pointer;
+  cursor: url("./assets/cursor-pointer.svg"), pointer;
 }
 
-
->>>>>>> 73c02f636d03a9300c0088046b29a7767fad303d
 /* ------- Buttons ------- */
 
 .btn {
@@ -109,7 +105,7 @@ button:focus {
 }
 
 button:hover {
-  cursor: url('./assets/cursor-pointer.svg'), pointer;
+  cursor: url("./assets/cursor-pointer.svg"), pointer;
 }
 
 .header-profile > a {
@@ -255,8 +251,8 @@ li > a:hover {
 }
 
 .chat-messages-container {
- height: 100%;
- width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .content {
@@ -300,6 +296,8 @@ select {
   /* outline: none;
   border: none; */
   border-radius: 20px;
+  border: var(--line-thick) solid var(--primary);
+  background-color: var(--secondary);
 }
 
 .login-signup-container > form > button[type="submit"] {
@@ -310,17 +308,12 @@ select {
   background-color: var(--tertiary);
   font-family: "Space Mono", monospace;
   font-size: var(--font-medium);
-<<<<<<< HEAD
-  /* outline: none;
-  border: 2px solid var(--tertiary); */
-=======
   outline: none;
   border: var(--line-thick) solid var(--tertiary);
->>>>>>> 73c02f636d03a9300c0088046b29a7767fad303d
   padding: 8px 30px;
   margin: 10px 0;
   border-radius: 20px;
-  cursor: url('./assets/cursor-pointer.svg'), pointer;
+  cursor: url("./assets/cursor-pointer.svg"), pointer;
   transition: 0.25s;
   width: 50%;
 }
@@ -363,13 +356,13 @@ select {
 
 .send-icon {
   align-self: center;
+  fill: var(--secondary);
 }
 
 textarea {
   resize: none;
   outline: none;
 }
-
 
 /* ------- Chat Messages ------- */
 
