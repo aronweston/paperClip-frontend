@@ -7,12 +7,11 @@ const ChatMessageRecipient = (props) => {
     <div className='chat-row-recipient'>
       <CreateClip />
       <div className='chat-message-recipient'>
-        <p>{props.message.message.text}</p>
+        <p>{props.message.username} | {props.message.message.text}</p>
         <p>
           {new Date(createdAt).toLocaleTimeString()}{' '}
           {new Date(createdAt).toLocaleDateString()}
         </p>
-        <p>{props.message.username}</p>
       </div>
     </div>
   );
