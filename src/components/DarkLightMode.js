@@ -19,7 +19,9 @@ function App() {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <button onClick={toggleTheme}>Toggle theme</button>
+        <p>{theme} mode</p>
+        <label class="switch"><input onClick={toggleTheme} type="checkbox" />   <div ></div>
+        </label>
         <footer>
         </footer>
       </>

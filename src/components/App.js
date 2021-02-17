@@ -15,9 +15,6 @@ import SignUp from '../pages/SignUp';
 import NotFound from '../pages/NotFound';
 import SubHeader from './SubHeader';
 
-// Dark/Light Mode
-import DarkLightMode from './DarkLightMode'
-
 const SERVER_URL = 'http://localhost:3000/logged_in';
 
 class App extends Component {
@@ -83,7 +80,7 @@ class App extends Component {
     return (
       <div className='App'>
         {/* <UserContext.Provider value={this.state.user}> */}
-        <SubHeader />
+        { /* <SubHeader /> */ }
         <NavBar login={this.state.loggedInStatus} user={this.state.user} />
 
         <BrowserRouter>
@@ -131,8 +128,6 @@ class App extends Component {
             </div>
           </Switch>
         </BrowserRouter>
-
-        <DarkLightMode />
 
         {/* </UserContext.Provider> */}
       </div>
