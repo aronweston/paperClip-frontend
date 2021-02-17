@@ -28,12 +28,6 @@ class Home extends Component {
   render() {
     return (
       <>
-        {/* <h2>Status: {this.props.loggedInStatus}</h2>
-         <button
-          className='btn btn-primary'
-          onClick={() => this.handleLogoutClick()}>
-          Logout
-        </button> */}
         <div className='platform-container'>
           <Platform
             login={this.props.login}
