@@ -5,6 +5,7 @@ import '../app.css';
 import '../aron.css';
 import '../zoha.css';
 
+// import UserContext from './UserContext';
 //Pages & Components
 import NavBar from './NavBar';
 import Home from '../pages/Home';
@@ -78,6 +79,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        {/* <UserContext.Provider value={this.state.user}> */}
         <SubHeader />
         <NavBar login={this.state.loggedInStatus} user={this.state.user} />
         <BrowserRouter>
@@ -125,6 +127,7 @@ class App extends Component {
             </div>
           </Switch>
         </BrowserRouter>
+        {/* </UserContext.Provider> */}
       </div>
     );
   }

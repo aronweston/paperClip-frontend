@@ -1,13 +1,12 @@
 import React from 'react';
-// import ChatMessageUser from './Chat/ChatMessageUser';
-// import ChatMessageRecipient from './Chat/ChatMessageRecipient';
+import ChatMessageUser from './ChatMessageUser';
+import ChatMessageRecipient from './ChatMessageRecipient';
 
-const MessagesArea = (props) => {
-  // console.log(props);
+const MessagesArea = ({ data, user }) => {
   return (
     <div className='messagesArea'>
-      {props.messages.map((message) => (
-        <p>{message.text}</p>
+      {data.map((message) => (
+        <ChatMessageUser message={message.message} />
       ))}
     </div>
   );

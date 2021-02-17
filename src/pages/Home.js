@@ -32,7 +32,7 @@ class Home extends Component {
           Logout
         </button>
         <div className='platform-container'>
-          <Platform />
+          <Platform user={this.props.user} />
         </div>
       </>
     );

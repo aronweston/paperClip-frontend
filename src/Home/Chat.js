@@ -33,34 +33,22 @@ export class Chat extends Component {
 
   _handleChatSend(e) {
     e.preventDefault();
-
     axios({
       method: 'POST',
       url: `${API_ROOT}/messages`,
       headers: HEADERS,
-      data: JSON.stringify(this.state.data),
-    })
-      .then(() => {
-        this.setState({
-          data: {
-            text: e.target.value,
-            user_id: 1,
-            chat_id: 1,
-          },
-        });
-      })
-      .catch((err) => console.log(err));
+      data: this.state.data,
+    }).catch((err) => console.log(err));
   }
 
   _handleChatInputChange(e) {
     this.setState({
       data: {
         text: e.target.value,
-        user_id: 1,
+        user_id: this.props.user.id,
         chat_id: 1,
       },
     });
-    console.log(this.state.data);
   }
 
   render() {
@@ -68,7 +56,9 @@ export class Chat extends Component {
       <>
         <div className='chat-messages-container'>
           <div className='content'>
-            {this.state.set && <MessagesArea messages={this.state.messages} />}
+            {this.state.set && (
+              <MessagesArea data={this.state.messages} user={this.props.user} />
+            )}
           </div>
         </div>
         <div className='chat-absolute-container'>
