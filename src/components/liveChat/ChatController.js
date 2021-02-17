@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import { ActionCableConsumer, ActionCable } from 'react-actioncable-provider';
-import { API_ROOT, SERVER_URL } from '../../constants';
+import { API_ROOT, SERVER_URL } from '../../auth/serverData';
 import NewMessageForm from './NewMessageForm';
 import MessagesArea from './MessagesArea';
 import _ from 'underscore';

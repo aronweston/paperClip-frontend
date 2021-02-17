@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { API_ROOT, HEADERS, SERVER_URL } from '../../constants';
+import { API_ROOT, HEADERS, SERVER_URL } from '../../auth/serverData';
 import axios from 'axios';
 
 class NewMessageForm extends Component {

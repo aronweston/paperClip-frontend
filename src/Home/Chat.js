@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import MessagesArea from '../components/liveChat/MessagesArea';
 import ChatInput from './Chat/ChatInput';
+import { API_ROOT, SERVER_URL } from '../auth/serverData';
 import JumpOutButton from './Chat/JumpOutButton';
 import SendButton from './Chat/SendButton';
+import axios from 'axios';
 
 export class Chat extends Component {
   constructor() {
@@ -13,6 +15,16 @@ export class Chat extends Component {
       messages: [],
       set: false,
     };
+    const fetchMessages = () => {
+      axios.get(SERVER_URL).then((response) => {
+        console.log(response.data);
+        this.setState({ messages: response.data });
+        this.setState({ set: true });
+        setTimeout(fetchMessages, 500);
+      });
+    };
+    fetchMessages();
+
     this._jumpOut = this._jumpOut.bind(this);
     this._handleChatInputChange = this._handleChatInputChange.bind(this);
     this._handleChatSend = this._handleChatSend.bind(this);
