@@ -3,19 +3,18 @@ import MainPanel from './MainPanel';
 import SidePanel from './SidePanel';
 
 class Platform extends Component {
-    render() {
-        return (
-            <>
-            <SidePanel
-              login={this.props.login}
-              user={this.props.user}
-              handleLogout={this.props.handleLogout}
-            />
-              <MainPanel
-              user={this.props.user} />
-            </>
-        )
-    }
+  render() {
+    return (
+      <>
+        <SidePanel
+          login={this.props.login}
+          user={this.props.user}
+          handleLogout={this.props.handleLogout}
+        />
+        <MainPanel user={this.props.user} />
+      </>
+    );
+  }
 }
 
 export default Platform;

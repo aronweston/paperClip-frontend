@@ -57,7 +57,10 @@ export class Chat extends Component {
         <div className='chat-messages-container'>
           <div className='content'>
             {this.state.set && (
-              <MessagesArea data={this.state.messages} user={this.props.user} />
+              <MessagesArea
+                messages={this.state.messages}
+                user={this.props.user}
+              />
             )}
           </div>
         </div>
