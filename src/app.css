@@ -494,6 +494,10 @@ textarea {
   margin: -5px 0 10px 20px;
 }
 
+.message-info {
+  margin: 0;
+}
+
 .clip-button-controls {
   margin: 0 0 0 -4px;
   padding: 2px 0px 30px 0px;
