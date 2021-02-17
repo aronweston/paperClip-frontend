@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import ChatController from './liveChat/ChatController';
 import { Redirect, BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import '../app.css';
 import '../aron.css';
+import '../zoha.css';
 
+// import UserContext from './UserContext';
 //Pages & Components
 import NavBar from './NavBar';
 import Home from '../pages/Home';
@@ -78,14 +79,13 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        {/* <UserContext.Provider value={this.state.user}> */}
         <SubHeader />
         <NavBar login={this.state.loggedInStatus} user={this.state.user} />
         <BrowserRouter>
           <Switch>
             <Route component={Landing} path='/landing' exact />
             <div className='main-container'>
-              <Route component={ChatController} path='/conversations' exact />
-
               <Route
                 render={(props) => (
                   <Login
@@ -127,6 +127,7 @@ class App extends Component {
             </div>
           </Switch>
         </BrowserRouter>
+        {/* </UserContext.Provider> */}
       </div>
     );
   }
