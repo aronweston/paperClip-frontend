@@ -8,10 +8,9 @@ class MainPanel extends Component {
   render() {
       return (
           <div className="main-panel-container">
-          <p>Main Panel</p>
           <Chat />
-          <Clips />
-          <Search />
+          {/*<Clips />*/}
+          {/*<Search />*/}
           </div>
       )
   }
