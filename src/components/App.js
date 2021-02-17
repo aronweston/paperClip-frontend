@@ -123,7 +123,7 @@ class App extends Component {
                   />
                 )}
               />
-              <Route render={NotFound} />
+              { /* <Route render={NotFound} /> */ }
             </div>
           </Switch>
         </BrowserRouter>
