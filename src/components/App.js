@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ConversationsList from './liveChat/ChatController';
+import ChatController from './liveChat/ChatController';
 import { Redirect, BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import '../app.css';
@@ -11,6 +11,8 @@ import Home from '../pages/Home';
 import Landing from '../pages/Landing';
 import Login from '../pages/LogIn';
 import SignUp from '../pages/SignUp';
+import NotFound from '../pages/NotFound';
+import SubHeader from './SubHeader';
 
 const SERVER_URL = 'http://localhost:3000/logged_in';
 
@@ -63,9 +65,7 @@ class App extends Component {
       loggedInStatus: 'NOT_LOGGED_IN',
       user: {},
     });
-    // <Route exact path="/landing">
-    // 	<Redirect push to="/landing" />
-    // </Route>
+    return <Redirect to='/landing' />;
   }
 
   handleLogin(data) {
@@ -78,21 +78,13 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <NavBar
-          login={this.state.loggedInStatus}
-          handleLogout={this.handleLogout}
-          handleLogoutClick={this.handleLogoutClick}
-          user={this.state.user}
-        />
+        <SubHeader />
+        <NavBar login={this.state.loggedInStatus} user={this.state.user} />
         <BrowserRouter>
           <Switch>
             <Route component={Landing} path='/landing' exact />
             <div className='main-container'>
-              <Route
-                component={ConversationsList}
-                path='/conversations'
-                exact
-              />
+              <Route component={ChatController} path='/conversations' exact />
 
               <Route
                 render={(props) => (
@@ -106,7 +98,6 @@ class App extends Component {
                 exact
                 path={'/login'}
               />
-
               <Route
                 render={(props) => (
                   <SignUp
@@ -119,14 +110,19 @@ class App extends Component {
                 exact
                 path={'/signup'}
               />
-
               <Route
                 exact
                 path={'/'}
                 render={(props) => (
-                  <Home {...props} loggedInStatus={this.state.loggedInStatus} />
+                  <Home
+                    {...props}
+                    loggedInStatus={this.state.loggedInStatus}
+                    handleLogout={this.handleLogout}
+                    handleLogoutClick={this.handleLogoutClick}
+                  />
                 )}
               />
+              <Route render={NotFound} />
             </div>
           </Switch>
         </BrowserRouter>

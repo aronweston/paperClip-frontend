@@ -447,3 +447,18 @@ textarea {
 .temp {
   padding: 1rem;
 }
+
+#profile-image {
+  max-width: 70px;
+  border-radius: 70px;
+  object-fit: cover;
+  display: inline-block;
+  border: var(--line-thin) solid var(--secondary);
+  transition: 0.25s;
+}
+
+#profile-image:hover {
+  object-fit: cover;
+  border: var(--line-thin) solid var(--tertiary);
+  box-sizing: border-box;
+}
