@@ -52,28 +52,6 @@ nav {
   z-index: 100;
 }
 
-.landing-title {
-  font-size: var(--font-exlarge);
-  font-weight: 600;
-  display: inline-block;
-  padding: 10px 0px;
-}
-
-.landing-logo {
-  display: inline-block;
-  margin-right: 15px;
-  width: 60px;
-}
-
-.landing-profile {
-  height: 30%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  width: 40%;
-}
-
 .header-cta {
   position: absolute;
   left: 30px;
@@ -227,14 +205,6 @@ li > a:hover {
   padding: 40px 80px 80px 80px;
 }
 
-.landing-container {
-  height: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .login-signup-container {
   height: 100%;
   display: flex;
@@ -276,6 +246,7 @@ li > a:hover {
   display: flex;
   flex-direction: column;
   min-width: 500px;
+  text-decoration: none;
   font-size: var(--font-medium);
 }
 
@@ -291,8 +262,8 @@ select {
   font-size: var(--font-medium);
   margin-bottom: 30px;
   padding: 10px 15px;
-  outline: none;
-  border: none;
+  /* outline: none;
+  border: none; */
   border-radius: 20px;
 }
 
@@ -304,8 +275,8 @@ select {
   background-color: var(--tertiary);
   font-family: "Space Mono", monospace;
   font-size: var(--font-medium);
-  outline: none;
-  border: 2px solid var(--tertiary);
+  /* outline: none;
+  border: 2px solid var(--tertiary); */
   padding: 8px 30px;
   margin: 10px 0;
   border-radius: 20px;
