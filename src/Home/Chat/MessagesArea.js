@@ -3,6 +3,7 @@ import React from 'react';
 // import ChatMessageRecipient from './Chat/ChatMessageRecipient';
 
 const MessagesArea = (props) => {
+  // console.log(props);
   return (
     <div className='messagesArea'>
       {props.messages.map((message) => (

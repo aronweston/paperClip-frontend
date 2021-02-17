@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import ChatController from './liveChat/ChatController';
 import { Redirect, BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import '../app.css';
 import '../aron.css';
+import '../zoha.css';
 
 //Pages & Components
 import NavBar from './NavBar';
@@ -84,8 +84,6 @@ class App extends Component {
           <Switch>
             <Route component={Landing} path='/landing' exact />
             <div className='main-container'>
-              <Route component={ChatController} path='/conversations' exact />
-
               <Route
                 render={(props) => (
                   <Login
@@ -119,6 +117,7 @@ class App extends Component {
                     loggedInStatus={this.state.loggedInStatus}
                     handleLogout={this.handleLogout}
                     handleLogoutClick={this.handleLogoutClick}
+                    user={this.state.user}
                   />
                 )}
               />

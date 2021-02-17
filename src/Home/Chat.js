@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
-import MessagesArea from '../components/liveChat/MessagesArea';
-import ChatInput from './Chat/ChatInput';
-import { API_ROOT, SERVER_URL } from '../auth/serverData';
+import { API_ROOT, HEADERS, SERVER_URL } from '../auth/serverData';
 import JumpOutButton from './Chat/JumpOutButton';
+import MessagesArea from './Chat/MessagesArea';
 import SendButton from './Chat/SendButton';
 import axios from 'axios';
 
 export class Chat extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      endChat: false,
-      chatInput: '',
+      data: {
+        chat_id: 0,
+        user_id: 0,
+        text: '',
+      },
       messages: [],
       set: false,
     };
+
     const fetchMessages = () => {
       axios.get(SERVER_URL).then((response) => {
-        console.log(response.data);
         this.setState({ messages: response.data });
         this.setState({ set: true });
         setTimeout(fetchMessages, 500);
@@ -25,31 +27,49 @@ export class Chat extends Component {
     };
     fetchMessages();
 
-    this._jumpOut = this._jumpOut.bind(this);
     this._handleChatInputChange = this._handleChatInputChange.bind(this);
     this._handleChatSend = this._handleChatSend.bind(this);
   }
 
-  _jumpOut() {
-    this.setState({ count: true });
-    console.log(this.state.count);
-  }
-
   _handleChatSend(e) {
     e.preventDefault();
-    console.log(this.state.chatInput);
-    this.setState({ chatInput: '' });
+
+    axios({
+      method: 'POST',
+      url: `${API_ROOT}/messages`,
+      headers: HEADERS,
+      data: JSON.stringify(this.state.data),
+    })
+      .then(() => {
+        this.setState({
+          data: {
+            text: e.target.value,
+            user_id: 1,
+            chat_id: 1,
+          },
+        });
+      })
+      .catch((err) => console.log(err));
   }
 
   _handleChatInputChange(e) {
-    this.setState({ chatInput: e.target.value });
+    this.setState({
+      data: {
+        text: e.target.value,
+        user_id: 1,
+        chat_id: 1,
+      },
+    });
+    console.log(this.state.data);
   }
 
   render() {
     return (
       <>
         <div className='chat-messages-container'>
-          <div className='content'>{/* <MessagesArea /> */}</div>
+          <div className='content'>
+            {this.state.set && <MessagesArea messages={this.state.messages} />}
+          </div>
         </div>
         <div className='chat-absolute-container'>
           <form id='message-form' onSubmit={this._handleChatSend}>
@@ -63,8 +83,11 @@ export class Chat extends Component {
             />
             <SendButton />
           </form>
-          {/* <ChatInput /> */}
-          <JumpOutButton onClick={this._jumpOut} />
+          <JumpOutButton
+            onClick={() => {
+              console.log('add logout to me');
+            }}
+          />
         </div>
       </>
     );
