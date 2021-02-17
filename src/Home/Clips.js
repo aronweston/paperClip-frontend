@@ -14,18 +14,10 @@ export class Clips extends Component {
 
     render() {
         return (
-            <div>
-                <p>Clips</p>
+            <div className="side-panel-bottom-container">
+                <h2>Clips</h2>
                 <div className="clip">
                     <Clip />
-                    <div className="clip-button-controls">
-                        {this.state.user ?
-                            <RemoveClip />
-                            :
-                            <CreateClip />
-                        }
-                        <CreateChat />
-                    </div>
                 </div>
             </div>
         )

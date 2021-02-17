@@ -6,6 +6,9 @@ import axios from 'axios';
 class Home extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      user: {}
+    }
     console.log(props);
     this.SERVER_URL = 'http://localhost:3000/logout';
   }
@@ -25,14 +28,18 @@ class Home extends Component {
   render() {
     return (
       <>
-        <h2>Status: {this.props.loggedInStatus}</h2>
-        <button
+        { /* <h2>Status: {this.props.loggedInStatus}</h2>
+         <button
           className='btn btn-primary'
           onClick={() => this.handleLogoutClick()}>
           Logout
-        </button>
+        </button> */}
         <div className='platform-container'>
-          <Platform />
+          <Platform
+            login={this.props.login}
+            user={this.props.user}
+            handleLogout={this.props.handleLogout}
+          />
         </div>
       </>
     );

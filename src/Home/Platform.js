@@ -6,7 +6,11 @@ class Platform extends Component {
     render() {
         return (
             <>
-              <SidePanel />
+            <SidePanel
+              login={this.props.login}
+              user={this.props.user}
+              handleLogout={this.props.handleLogout}
+            />
               <MainPanel />
             </>
         )

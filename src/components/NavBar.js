@@ -1,7 +1,6 @@
 import React from 'react';
 import Logo from '../assets/logo.svg';
 import LoginController from './LoginController';
-// import Random from '../assets/random.svg'
 
 const NavBar = (props) => {
   return (

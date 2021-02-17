@@ -119,10 +119,11 @@ class App extends Component {
                     loggedInStatus={this.state.loggedInStatus}
                     handleLogout={this.handleLogout}
                     handleLogoutClick={this.handleLogoutClick}
+                    user={this.state.user}
                   />
                 )}
               />
-              <Route render={NotFound} />
+              { /* <Route render={NotFound} /> */ }
             </div>
           </Switch>
         </BrowserRouter>

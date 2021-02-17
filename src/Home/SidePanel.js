@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
-import OnlineUsers from './OnlineUsers'
+import Clips from './Clips'
 import Profile from './Profile'
+
 
 class SidePanel extends Component {
 
   render() {
       return (
           <div className="side-panel-container">
-          <p>Side Panel</p>
-          <Profile />
-          <OnlineUsers />
+          <Profile
+            login={this.props.login}
+            user={this.props.user}
+            handleLogout={this.props.handleLogout}
+          />
+            <Clips />
           </div>
       )
   }
-
 
 }
 

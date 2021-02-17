@@ -8,8 +8,8 @@ export const LoginController = (props) => {
       //only show the login profile
       return (
         <div>
-          <a href='/profile'>
-            <img id='profile-image' src={props.user.profile_photo} alt='' />
+          <a id='profile-image' href='/profile'>
+            { props.user.username.charAt(0) }
           </a>
         </div>
       );
