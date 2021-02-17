@@ -19,24 +19,23 @@ class Home extends Component {
       });
   };
 
+  // if (this.props.loggedInStatus === 'NOT_LOGGED_IN') {
+  // return <Redirect to='/login' />;
+
   render() {
-    if (this.props.loggedInStatus === 'NOT_LOGGED_IN') {
-      return <Redirect to='/login' />;
-    } else {
-      return (
-        <>
-          <h2>Status: {this.props.loggedInStatus}</h2>
-          <button
-            className='btn btn-primary'
-            onClick={() => this.handleLogoutClick()}>
-            Logout
-          </button>
-          <div className='platform-container'>
-            <Platform />
-          </div>
-        </>
-      );
-    }
+    return (
+      <>
+        <h2>Status: {this.props.loggedInStatus}</h2>
+        <button
+          className='btn btn-primary'
+          onClick={() => this.handleLogoutClick()}>
+          Logout
+        </button>
+        <div className='platform-container'>
+          <Platform />
+        </div>
+      </>
+    );
   }
 }
 
