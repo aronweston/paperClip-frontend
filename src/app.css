@@ -286,6 +286,8 @@ li > a:hover {
   outline: none;
   border: none;
   border-radius: 20px;
+  border: var(--line-thick) solid var(--primary);
+  background-color: var(--secondary);
 }
 
 .login-signup-container > form > button[type="submit"] {
@@ -344,6 +346,7 @@ li > a:hover {
 
 .send-icon {
   align-self: center;
+  fill: var(--secondary);
 }
 
 textarea {

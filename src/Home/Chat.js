@@ -3,7 +3,7 @@ import ChatMessageUser from './Chat/ChatMessageUser'
 import ChatMessageRecipient from './Chat/ChatMessageRecipient'
 import ChatInput from './Chat/ChatInput'
 import JumpOutButton from './Chat/JumpOutButton'
-import Send from '../assets/send.svg'
+import SendButton from './Chat/SendButton'
 
 export class Chat extends Component {
     constructor() {
@@ -50,7 +50,7 @@ export class Chat extends Component {
             <div className="chat-absolute-container">
               <form id="message-form" onSubmit={this._handleChatSend}>
                 <textarea className="message-input" type="text" name="message-input" onChange={this._handleChatInputChange} placeholder="What's on your mind?" value={this.state.chatInput} />
-                <button className="send-button"><img className="send-icon" src={Send} alt="Send Message"/></button>
+                <SendButton />
               </form>
               {/* <ChatInput /> */}
               <JumpOutButton onClick={this._jumpOut} />
