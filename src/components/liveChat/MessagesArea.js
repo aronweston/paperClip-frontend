@@ -1,4 +1,6 @@
 import React from 'react';
+// import ChatMessageUser from './Chat/ChatMessageUser';
+// import ChatMessageRecipient from './Chat/ChatMessageRecipient';
 
 const MessagesArea = (props) => {
   return (
