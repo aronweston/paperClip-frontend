@@ -7,8 +7,8 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {}
-    }
+      user: {},
+    };
     console.log(props);
     this.SERVER_URL = 'http://localhost:3000/logout';
   }
@@ -28,22 +28,18 @@ class Home extends Component {
   render() {
     return (
       <>
-        { /* <h2>Status: {this.props.loggedInStatus}</h2>
+        {/* <h2>Status: {this.props.loggedInStatus}</h2>
          <button
           className='btn btn-primary'
           onClick={() => this.handleLogoutClick()}>
           Logout
         </button> */}
         <div className='platform-container'>
-<<<<<<< HEAD
           <Platform
             login={this.props.login}
             user={this.props.user}
             handleLogout={this.props.handleLogout}
           />
-=======
-          <Platform user={this.props.user} />
->>>>>>> 3c91d8dd858f0dcc3698517a238e656848719397
         </div>
       </>
     );
