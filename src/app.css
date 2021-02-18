@@ -253,6 +253,8 @@ li > a:hover {
 .content {
   height: calc(100% - 170px);
   overflow: auto;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .chat-absolute-container {
