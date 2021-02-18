@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { REGISTRATIONS } from '../auth/serverData';
-import ErrorMessage from '../auth/ErrorMessage';
+import RegErrorMessage from './RegErrorMessage';
+import LoginErrorMessage from './LoginErrorMessage';
 import axios from 'axios';
 
 export class Registration extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       username: '',
       email: '',
@@ -65,8 +65,8 @@ export class Registration extends Component {
     return (
       <>
         <h1>Sign up</h1>
-        {this.state.error && this.state.error.length > 1 && (
-          <ErrorMessage class={'error-box'} message={this.state.error} />
+        {this.state.error.length > 0 && (
+          <LoginErrorMessage class={'error-box'} message={this.state.error} />
         )}
         <form onSubmit={this.handleSubmit}>
           <input

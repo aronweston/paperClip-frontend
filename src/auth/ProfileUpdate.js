@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import { USERS } from '../auth/serverData';
 
@@ -44,6 +45,7 @@ export class ProfileUpdate extends Component {
         console.log(response);
         if (response.data.status === 'created') {
           this.props.handleSuccessfulAuth(response.data);
+          // return <Redirect to='/profile' />;
         }
       })
       .catch((error) => {
