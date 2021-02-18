@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoginErrorMessage from './LoginErrorMessage';
+import ErrorMessage from './ErrorMessage';
 import { SESSIONS } from '../auth/serverData';
 import axios from 'axios';
 
@@ -64,7 +64,7 @@ export class LoginAuth extends Component {
           <strong>chicken</strong>
         </p>
         {this.state.error.length > 1 && (
-          <LoginErrorMessage class={'error-box'} message={this.state.error} />
+          <ErrorMessage class={'error-box'} message={this.state.error} />
         )}
         <form onSubmit={this.handleSubmit}>
           <input

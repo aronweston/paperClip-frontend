@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import ErrorMessage from './ErrorMessage';
 import { USERS } from '../auth/serverData';
 
 export class ProfileUpdate extends Component {
@@ -11,7 +11,8 @@ export class ProfileUpdate extends Component {
       email: '',
       password: '',
       password_confirmation: '',
-      registrationErrors: '',
+      message: '',
+      success: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -45,7 +46,11 @@ export class ProfileUpdate extends Component {
         console.log(response);
         if (response.data.status === 'created') {
           this.props.handleSuccessfulAuth(response.data);
-          // return <Redirect to='/profile' />;
+        }
+
+        if (response.data.status === 204) {
+          console.log('Success');
+          this.setState({ message: 'Success', success: true });
         }
       })
       .catch((error) => {
@@ -57,7 +62,12 @@ export class ProfileUpdate extends Component {
     return (
       <>
         <h1>It's time for a change.</h1>
-
+        {this.state.message.length > 0 && (
+          <ErrorMessage
+            class={'error-box green'}
+            message={this.state.message}
+          />
+        )}
         <form onSubmit={this.handleSubmit}>
           <input
             type='text'
@@ -93,6 +103,9 @@ export class ProfileUpdate extends Component {
           />
           <button type='submit'>submit</button>
         </form>
+        <a className='btn btn-primary' href='/profile'>
+          Go Back{' '}
+        </a>
       </>
     );
   }

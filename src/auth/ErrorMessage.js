@@ -1,7 +1,7 @@
 import React from 'react';
 import '../aron.css';
 
-export const LoginErrorMessage = (props) => {
+export const ErrorMessage = (props) => {
   return (
     <div className={props.class}>
       <ul>
@@ -11,4 +11,4 @@ export const LoginErrorMessage = (props) => {
   );
 };
 
-export default LoginErrorMessage;
+export default ErrorMessage;
