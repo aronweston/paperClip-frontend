@@ -34,7 +34,7 @@ export class Clips extends Component {
   render() {
     return (
       <div className='side-panel-bottom-container'>
-        <h2>Clips</h2>
+        <h2>clips</h2>
         <div className='clip'>
           <Clip clips={this.state.clips} />
         </div>
