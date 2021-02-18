@@ -11,7 +11,7 @@ const Clip = (props) => {
 							<div className="clip-message-container">
 								<p className="clip-message">{c.text}</p>
 								<p className="clip-info">
-									{c.username} | {new Date(c.messaged_at).toLocaleTimeString()} {new Date(c.messaged_at).toLocaleDateString()}
+									@{c.username} | {new Date(c.messaged_at).toLocaleTimeString()} {new Date(c.messaged_at).toLocaleDateString()}
 								</p>
 							</div>
 							<div className="clip-button-controls">
