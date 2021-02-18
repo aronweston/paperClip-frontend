@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { API_ROOT, HEADERS, SERVER_URL } from '../auth/serverData';
+import { ROOT, HEADERS, MESSAGES } from '../auth/serverData';
 import JumpOutButton from './Chat/JumpOutButton';
 import MessagesArea from './Chat/MessagesArea';
 import SendButton from './Chat/SendButton';
@@ -19,7 +19,7 @@ export class Chat extends Component {
     };
 
     const fetchMessages = () => {
-      axios.get(SERVER_URL).then((response) => {
+      axios.get(MESSAGES).then((response) => {
         this.setState({ messages: response.data });
         this.setState({ set: true });
         setTimeout(fetchMessages, 500);
@@ -33,10 +33,10 @@ export class Chat extends Component {
 
   _handleChatSend(e) {
     e.preventDefault();
-    if (e.target.value !== ''){
+    if (e.target.value !== '') {
       axios({
         method: 'POST',
-        url: `${API_ROOT}/messages`,
+        url: `${ROOT}/messages`,
         headers: HEADERS,
         data: this.state.data,
       }).catch((err) => console.log(err));
@@ -47,7 +47,7 @@ export class Chat extends Component {
           chat_id: 1,
         },
       });
-    };
+    }
   }
 
   _handleChatInputChange(e) {
@@ -61,10 +61,10 @@ export class Chat extends Component {
   }
 
   handleKeyPress = (e) => {
-    if(e.which === 13 && !e.shiftKey) {
-        this._handleChatSend(e);
+    if (e.which === 13 && !e.shiftKey) {
+      this._handleChatSend(e);
     }
-  }
+  };
 
   render() {
     return (
@@ -95,7 +95,7 @@ export class Chat extends Component {
           </form>
           <JumpOutButton
             onClick={() => {
-              console.log('add logout to me');
+              this.props.handleLogout();
             }}
           />
         </div>

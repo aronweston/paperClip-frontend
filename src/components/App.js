@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
+import { LOGGED_IN } from '../auth/serverData';
 import { Redirect, BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import '../app.css';
 import '../aron.css';
 import '../zoha.css';
 
-// import UserContext from './UserContext';
 //Pages & Components
 import NavBar from './NavBar';
 import Home from '../pages/Home';
 import Landing from '../pages/Landing';
 import Login from '../pages/LogIn';
 import SignUp from '../pages/SignUp';
-import NotFound from '../pages/NotFound';
-import SubHeader from './SubHeader';
-
-const SERVER_URL = 'http://localhost:3000/logged_in';
 
 class App extends Component {
   constructor() {
@@ -24,6 +20,7 @@ class App extends Component {
     this.state = {
       loggedInStatus: 'NOT_LOGGED_IN',
       user: {},
+      loggedIn: false,
     };
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -32,7 +29,7 @@ class App extends Component {
 
   checkLoginStatus() {
     axios
-      .get(SERVER_URL, { withCredentials: true })
+      .get(LOGGED_IN, { withCredentials: true })
       .then((response) => {
         if (
           response.data.logged_in &&
@@ -49,6 +46,7 @@ class App extends Component {
           this.setState({
             loggedInStatus: 'NOT_LOGGED_IN',
             user: {},
+            loggedIn: true,
           });
         }
       })
@@ -66,23 +64,20 @@ class App extends Component {
       loggedInStatus: 'NOT_LOGGED_IN',
       user: {},
     });
-    return <Redirect to='/landing' />;
   }
 
   handleLogin(data) {
     this.setState({
       loggedInStatus: 'LOGGED_IN',
       user: data.user,
+      loggedIn: true,
     });
   }
 
   render() {
     return (
       <div className='App'>
-        {/* <UserContext.Provider value={this.state.user}> */}
-        { /* <SubHeader /> */ }
         <NavBar login={this.state.loggedInStatus} user={this.state.user} />
-
         <BrowserRouter>
           <Switch>
             <Route component={Landing} path='/landing' exact />
@@ -124,12 +119,9 @@ class App extends Component {
                   />
                 )}
               />
-              { /* <Route render={NotFound} /> */ }
             </div>
           </Switch>
         </BrowserRouter>
-
-        {/* </UserContext.Provider> */}
       </div>
     );
   }

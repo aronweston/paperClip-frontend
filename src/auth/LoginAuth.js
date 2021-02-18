@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
+import { SESSIONS } from '../auth/serverData';
 import axios from 'axios';
-
-const SERVER_URL = 'http://localhost:3000/sessions';
 
 export class LoginAuth extends Component {
   constructor(props) {
@@ -31,7 +30,7 @@ export class LoginAuth extends Component {
 
     axios
       .post(
-        SERVER_URL,
+        SESSIONS,
         {
           user: {
             username,
