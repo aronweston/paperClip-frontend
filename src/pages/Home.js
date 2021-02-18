@@ -22,7 +22,10 @@ class Home extends Component {
   };
 
   render() {
-    // if (this.props.loggedInStatus === 'LOGGED_IN') {
+    if (!this.props.loggedInStatus === 'LOGGED_IN') {
+      return <Redirect to='/login' />;
+    }
+
     return (
       <>
         <div className='platform-container'>
@@ -34,9 +37,6 @@ class Home extends Component {
         </div>
       </>
     );
-    // } else {
-    //   return <Redirect to='/login' />;
-    // }
   }
 }
 export default Home;
