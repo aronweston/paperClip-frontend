@@ -8,7 +8,7 @@ const Profile = (props) => {
       <p class='bio'>
         {props.user.first_name} {props.user.last_name}
       </p>
-      <a className='btn btn-primary' href='/profile'>
+      <a className='edit-profile btn btn-primary' href='/profile'>
         Edit Profile
       </a>
     </div>
