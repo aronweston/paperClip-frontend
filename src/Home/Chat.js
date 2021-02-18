@@ -33,19 +33,21 @@ export class Chat extends Component {
 
   _handleChatSend(e) {
     e.preventDefault();
-    axios({
-      method: 'POST',
-      url: `${API_ROOT}/messages`,
-      headers: HEADERS,
-      data: this.state.data,
-    }).catch((err) => console.log(err));
-    this.setState({
-      data: {
-        text: '',
-        user_id: this.props.user.id,
-        chat_id: 1,
-      },
-    });
+    if (e.target.value !== ''){
+      axios({
+        method: 'POST',
+        url: `${API_ROOT}/messages`,
+        headers: HEADERS,
+        data: this.state.data,
+      }).catch((err) => console.log(err));
+      this.setState({
+        data: {
+          text: '',
+          user_id: this.props.user.id,
+          chat_id: 1,
+        },
+      });
+    };
   }
 
   _handleChatInputChange(e) {
