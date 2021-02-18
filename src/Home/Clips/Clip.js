@@ -11,11 +11,11 @@ const Clip = (props) => {
 							<div className="clip-message-container">
 								<p className="clip-message">{c.text}</p>
 								<p className="clip-info">
-									{c.username} | {c.messaged_at}
+									@{c.username} | {new Date(c.messaged_at).toLocaleTimeString()} {new Date(c.messaged_at).toLocaleDateString()}
 								</p>
 							</div>
 							<div className="clip-button-controls">
-								<RemoveClip />
+								<RemoveClip clipId={c.clip_id} fetchClips={props.fetchClips} />
 							</div>
 						</div>
 					</div>

@@ -489,6 +489,7 @@ textarea {
 .clip-message-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .clip-message {
