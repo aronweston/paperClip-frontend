@@ -224,7 +224,7 @@ li > a:hover {
 
 .platform-container {
   margin: 0 auto;
-  max-width: 800px;
+  max-width: 900px;
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -352,7 +352,7 @@ li > a:hover {
   display: inline-flex;
   align-self: center;
   justify-content: center;
-  color: var(--secondary);
+  color: #FFF7F1;
   background-color: var(--tertiary);
   font-family: 'Space Mono', monospace;
   font-size: var(--font-medium);
@@ -590,10 +590,10 @@ textarea {
 
 /* ------- Media Queries ------- */
 
-@media all and (max-height: 2000px) and (min-height: 800px) {
+@media all and (max-height: 2000px) and (min-height: 900px) {
 
   .platform-container {
-    height: 600px;
+    height: 700px;
   }
 
 }
