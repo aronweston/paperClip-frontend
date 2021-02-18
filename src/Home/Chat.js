@@ -33,12 +33,21 @@ export class Chat extends Component {
 
   _handleChatSend(e) {
     e.preventDefault();
-    axios({
-      method: 'POST',
-      url: `${ROOT}/messages`,
-      headers: HEADERS,
-      data: this.state.data,
-    }).catch((err) => console.log(err));
+    if (e.target.value !== '') {
+      axios({
+        method: 'POST',
+        url: `${ROOT}/messages`,
+        headers: HEADERS,
+        data: this.state.data,
+      }).catch((err) => console.log(err));
+      this.setState({
+        data: {
+          text: '',
+          user_id: this.props.user.id,
+          chat_id: 1,
+        },
+      });
+    }
   }
 
   _handleChatInputChange(e) {
@@ -50,6 +59,12 @@ export class Chat extends Component {
       },
     });
   }
+
+  handleKeyPress = (e) => {
+    if (e.which === 13 && !e.shiftKey) {
+      this._handleChatSend(e);
+    }
+  };
 
   render() {
     return (
@@ -73,6 +88,8 @@ export class Chat extends Component {
               onChange={this._handleChatInputChange}
               placeholder="What's on your mind?"
               value={this.state.data.text}
+              onKeyPress={this.handleKeyPress}
+              autoFocus
             />
             <SendButton />
           </form>
