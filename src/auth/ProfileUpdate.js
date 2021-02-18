@@ -26,9 +26,7 @@ export class ProfileUpdate extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
     const { username, email, password, password_confirmation } = this.state;
-
     axios
       .put(
         `${USERS}/${this.props.user.id}`,
@@ -47,7 +45,6 @@ export class ProfileUpdate extends Component {
         if (response.data.status === 'created') {
           this.props.handleSuccessfulAuth(response.data);
         }
-
         if (response.data.status === 204) {
           console.log('Success');
           this.setState({ message: 'Success', success: true });
