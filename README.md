@@ -4,7 +4,7 @@
 
 Having fun in your chat? Friend them! Want to remember what they said? Clip it!
 
-Join in on the fun here.[Chere](./src/assets/1.png)
+Join in on the fun [here](https://justclipit.netlify.app/)!
 
 ## Features
 
