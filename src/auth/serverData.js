@@ -19,7 +19,6 @@ export const CLIPS = "https://paperclip-b.herokuapp.com/clips";
 // export const CLIPS = "http://localhost:3000/clips/";
 
 //Don't comment this out
-
 export const HEADERS = {
 	"Content-Type": "application/json",
 	Accept: "application/json",

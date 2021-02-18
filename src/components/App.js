@@ -12,6 +12,7 @@ import Home from '../pages/Home';
 import Landing from '../pages/Landing';
 import Login from '../pages/LogIn';
 import SignUp from '../pages/SignUp';
+import Profile from '../pages/Profile';
 
 class App extends Component {
   constructor() {
@@ -20,7 +21,6 @@ class App extends Component {
     this.state = {
       loggedInStatus: 'NOT_LOGGED_IN',
       user: {},
-      loggedIn: false,
     };
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -46,7 +46,6 @@ class App extends Component {
           this.setState({
             loggedInStatus: 'NOT_LOGGED_IN',
             user: {},
-            loggedIn: true,
           });
         }
       })
@@ -85,11 +84,25 @@ class App extends Component {
             <div className='main-container'>
               <Route
                 render={(props) => (
+                  <Profile
+                    {...props}
+                    handleLogin={this.handleLogin}
+                    handleLogout={this.handleLogout}
+                    loggedInStatus={this.state.loggedInStatus}
+                    user={this.state.user}
+                  />
+                )}
+                exact
+                path={'/profile'}
+              />
+              <Route
+                render={(props) => (
                   <Login
                     {...props}
                     handleLogin={this.handleLogin}
                     handleLogout={this.handleLogout}
                     loggedInStatus={this.state.loggedInStatus}
+                    user={this.state.user}
                   />
                 )}
                 exact
@@ -102,6 +115,7 @@ class App extends Component {
                     handleLogin={this.handleLogin}
                     handleLogout={this.handleLogout}
                     loggedInStatus={this.state.loggedInStatus}
+                    user={this.state.user}
                   />
                 )}
                 exact

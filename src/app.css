@@ -279,6 +279,9 @@ li > a:hover {
   border-bottom: var(--line-medium) solid var(--primary);
   text-align: center;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .side-panel-bottom-container {
@@ -287,7 +290,7 @@ li > a:hover {
   border-radius: 0px 0px 0px 20px;
 }
 
-#profile-image {
+.profile-letter {
   width: 50px;
   height: 50px;
   display: flex;
@@ -304,21 +307,31 @@ li > a:hover {
   transition: 0.25s;
 }
 
-#profile-image:hover {
+.profile-letter:hover {
   object-fit: cover;
   color: var(--tertiary);
   border: var(--line-thick) solid var(--tertiary);
   box-sizing: border-box;
 }
 
+/* Profile page profile letter */
+
+.profile-letter.profile-page {
+  width: 100px;
+  height: 100px;
+  font-size: 50px;
+}
+
+
 .bio {
-  margin-top: 10px;
   color: var(--tertiary);
   font-size: var(--font-medium-large);
 }
 
-.side-panel-top-container > h2 {
-  margin-bottom: 35px;
+.edit-profile {
+  bottom: 0;
+  width: 50%;
+  align-self: center;
 }
 
 
@@ -493,6 +506,12 @@ textarea {
 .clip-info {
   font-size: var(--font-small);
   color: rgba(var(--primary-rgb), 0.5);
+  margin: -5px 0 10px 20px;
+}
+
+.clip-info-recipient {
+  font-size: var(--font-small);
+  color: rgba(var(--secondary-rgb), 0.5);
   margin: -5px 0 10px 20px;
 }
 

@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export const LoginController = (props) => {
+const LoginController = (props) => {
   if (props && props.login === undefined) {
     return null;
   } else {
     if (props.login === 'LOGGED_IN') {
-      //only show the login profile
       return (
         <div>
-          <a id='profile-image' href='/profile'>
-            { props.user.username.charAt(0) }
+          <a className='profile-letter' href='/profile'>
+            {props.user.username.charAt(0)}
           </a>
         </div>
       );
     } else {
-      //login button
       return (
         <a className='btn btn-primary' href='/login'>
           Login

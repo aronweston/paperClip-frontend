@@ -7,11 +7,9 @@ const ChatMessageRecipient = (props) => {
 		<div className="chat-row-recipient">
 			<CreateClip message={props.message} user={props.user} fetchClips={props.fetchClips} />
 			<div className="chat-message-recipient">
-				<p>
-					{props.message.username} | {props.message.message.text}
-				</p>
-				<p>
-					{new Date(createdAt).toLocaleTimeString()} {new Date(createdAt).toLocaleDateString()}
+				<p>{props.message.message.text}</p>
+				<p className="clip-info-recipient  message-info">
+					@{props.message.username} |{new Date(createdAt).toLocaleTimeString()} {new Date(createdAt).toLocaleDateString()}
 				</p>
 			</div>
 		</div>

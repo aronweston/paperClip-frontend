@@ -1,0 +1,11 @@
+.error-box {
+    background-color: var(--tertiary);
+    color: white;
+    font-family: 'Space Mono', monospace;
+    font-size: var(--font-medium);
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    text-align: center;
+    min-width: 500px;
+    border-radius: 20px;
+}

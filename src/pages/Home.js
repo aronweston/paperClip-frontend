@@ -31,10 +31,6 @@ class Home extends Component {
 	};
 
 	render() {
-		if (!this.props.loggedInStatus === "LOGGED_IN") {
-			return <Redirect to="/login" />;
-		}
-
 		return (
 			<>
 				<div className="platform-container">

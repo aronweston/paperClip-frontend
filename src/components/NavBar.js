@@ -9,10 +9,12 @@ const NavBar = (props) => {
       <div className='header-cta'>
         <DarkLightMode />
       </div>
-      <a className='header-title' href='/'>
-        <img className='header-logo' src={Logo} />
-        paperClip
-      </a>
+      <div>
+        <a className='header-title' href='/'>
+          <img className='header-logo' src={Logo} />
+          paperClip
+        </a>
+      </div>
       <div className='header-profile'>
         <LoginController
           login={props.login}
