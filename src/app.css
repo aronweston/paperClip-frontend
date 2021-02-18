@@ -290,7 +290,7 @@ li > a:hover {
   border-radius: 0px 0px 0px 20px;
 }
 
-#profile-image {
+.profile-letter {
   width: 50px;
   height: 50px;
   display: flex;
@@ -307,12 +307,21 @@ li > a:hover {
   transition: 0.25s;
 }
 
-#profile-image:hover {
+.profile-letter:hover {
   object-fit: cover;
   color: var(--tertiary);
   border: var(--line-thick) solid var(--tertiary);
   box-sizing: border-box;
 }
+
+/* Profile page profile letter */
+
+.profile-letter.profile-page {
+  width: 100px;
+  height: 100px;
+  font-size: 50px;
+}
+
 
 .bio {
   color: var(--tertiary);

@@ -19,5 +19,4 @@ class Platform extends Component {
     );
   }
 }
-
 export default Platform;

@@ -12,7 +12,7 @@ import Home from '../pages/Home';
 import Landing from '../pages/Landing';
 import Login from '../pages/LogIn';
 import SignUp from '../pages/SignUp';
-import UserProfile from '../pages/UserProfile';
+import Profile from '../pages/Profile';
 
 class App extends Component {
   constructor() {
@@ -84,6 +84,19 @@ class App extends Component {
             <div className='main-container'>
               <Route
                 render={(props) => (
+                  <Profile
+                    {...props}
+                    handleLogin={this.handleLogin}
+                    handleLogout={this.handleLogout}
+                    loggedInStatus={this.state.loggedInStatus}
+                    user={this.state.user}
+                  />
+                )}
+                exact
+                path={'/profile'}
+              />
+              <Route
+                render={(props) => (
                   <Login
                     {...props}
                     handleLogin={this.handleLogin}
@@ -108,7 +121,6 @@ class App extends Component {
                 exact
                 path={'/signup'}
               />
-
               <Route
                 exact
                 path={'/'}

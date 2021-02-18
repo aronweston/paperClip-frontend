@@ -7,7 +7,7 @@ const LoginController = (props) => {
     if (props.login === 'LOGGED_IN') {
       return (
         <div>
-          <a id='profile-image' href='/profile'>
+          <a className='profile-letter' href='/profile'>
             {props.user.username.charAt(0)}
           </a>
         </div>
