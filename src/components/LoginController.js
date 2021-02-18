@@ -15,7 +15,7 @@ const LoginController = (props) => {
     } else {
       return (
         <a className='btn btn-primary' href='/login'>
-          Login
+          login
         </a>
       );
     }
