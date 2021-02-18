@@ -14,13 +14,13 @@ const NavBar = (props) => {
           <img className='header-logo' src={Logo} />
           paperClip
         </a>
-        <div className='header-profile'>
-          <LoginController
-            login={props.login}
-            user={props.user}
-            handleLogout={props.handleLogout}
-          />
-        </div>
+      </div>
+      <div className='header-profile'>
+        <LoginController
+          login={props.login}
+          user={props.user}
+          handleLogout={props.handleLogout}
+        />
       </div>
     </nav>
   );
