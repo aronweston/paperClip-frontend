@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export const LoginController = (props) => {
+const LoginController = (props) => {
   if (props && props.login === undefined) {
     return null;
   } else {
@@ -9,7 +9,7 @@ export const LoginController = (props) => {
       return (
         <div>
           <a id='profile-image' href='/profile'>
-            { props.user.username.charAt(0) }
+            {props.user.username.charAt(0)}
           </a>
         </div>
       );
