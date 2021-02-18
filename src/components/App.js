@@ -65,6 +65,7 @@ class App extends Component {
       loggedInStatus: "NOT_LOGGED_IN",
       user: {},
     });
+    return <Redirect to='/login' />;
   }
 
   handleLogin(data) {
