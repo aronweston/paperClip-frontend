@@ -15,11 +15,18 @@ Real time chat with the 📎paperClip community.
 ![Chat with users](./src/assets/1.png)
 
 
+## Clip user messages 📎
+
+Clip user messages that you like on your own clipboard by simply clicking the 📎 next to a message.
+
+![Clip user messages](./src/assets/3.png)
+
+
 ### Dark / Light Mode 🌚🌝
 
 Chat in light or dark mode!
 
-![Chat with users](./src/assets/2.png)
+![Dark and Light Mode](./src/assets/2.png)
 
 
 ## Technical breakdown
