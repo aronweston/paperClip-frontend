@@ -14,6 +14,7 @@ Real time chat with the 📎paperClip community.
 
 ![Chat with users](./src/assets/1.png)
 
+-------
 
 ## Clip user messages 📎
 
@@ -21,6 +22,7 @@ Clip user messages that you like on your own clipboard by simply clicking the �
 
 ![Clip user messages](./src/assets/3.png)
 
+-------
 
 ### Dark / Light Mode 🌚🌝
 
@@ -28,6 +30,7 @@ Chat in light or dark mode!
 
 ![Dark and Light Mode](./src/assets/2.png)
 
+-------
 
 ## Technical breakdown
 
@@ -37,7 +40,7 @@ Chat in light or dark mode!
 
 It combines and relates user, chat, message and clip models.
 
-## Extensions, Gems and Packages
+### Extensions, Gems and Packages
 
 We utilised Rails core gems alongside Rails Same Site Cookie and for the frontend made use of Axios, Styled Components, Underscore, React Scripts and web Vitals.
 
