@@ -17,18 +17,18 @@ class Home extends Component {
       .delete(LOGOUT, { withCredentials: true })
       .then(this.props.handleLogout)
       .catch((error) => {
-        console.log('logout error', error);
+        console.log("logout error", error);
       });
   };
 
   render() {
-    if (!this.props.loggedInStatus === 'LOGGED_IN') {
-      return <Redirect to='/login' />;
+    if (!this.props.loggedInStatus === "LOGGED_IN") {
+      return <Redirect to="/login" />;
     }
 
     return (
       <>
-        <div className='platform-container'>
+        <div className="platform-container">
           <Platform
             login={this.props.login}
             user={this.props.user}
