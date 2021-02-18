@@ -22,9 +22,9 @@ class Home extends Component {
   };
 
   render() {
-    if (!this.props.loggedInStatus === 'LOGGED_IN') {
-      return <Redirect to='/login' />;
-    }
+    // if (!this.props.loggedInStatus === 'LOGGED_IN') {
+    //   return <Redirect to='/login' />;
+    // }
 
     return (
       <>

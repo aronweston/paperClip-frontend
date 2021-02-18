@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { REGISTRATIONS } from '../auth/serverData';
+import ErrorMessage from '../auth/ErrorMessage';
 import axios from 'axios';
 
 export class Registration extends Component {
@@ -11,7 +12,7 @@ export class Registration extends Component {
       email: '',
       password: '',
       password_confirmation: '',
-      registrationErrors: '',
+      error: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -42,8 +43,17 @@ export class Registration extends Component {
         { withCredentials: true }
       )
       .then((response) => {
-        if (response.data.status === 'created') {
-          this.props.handleSuccessfulAuth(response.data);
+        console.log(response);
+        if (response.data.status === 500) {
+          this.setState({
+            error: response.data.error,
+            username: '',
+            password: '',
+          });
+        } else {
+          if (response.data.status === 'created') {
+            this.props.handleSuccessfulAuth(response.data);
+          }
         }
       })
       .catch((error) => {
@@ -55,6 +65,9 @@ export class Registration extends Component {
     return (
       <>
         <h1>Sign up</h1>
+        {this.state.error && this.state.error.length > 1 && (
+          <ErrorMessage class={'error-box'} message={this.state.error} />
+        )}
         <form onSubmit={this.handleSubmit}>
           <input
             type='text'

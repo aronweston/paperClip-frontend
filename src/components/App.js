@@ -21,7 +21,6 @@ class App extends Component {
     this.state = {
       loggedInStatus: 'NOT_LOGGED_IN',
       user: {},
-      loggedIn: false,
     };
 
     this.handleLogin = this.handleLogin.bind(this);
@@ -47,7 +46,6 @@ class App extends Component {
           this.setState({
             loggedInStatus: 'NOT_LOGGED_IN',
             user: {},
-            loggedIn: false,
           });
         }
       })
@@ -79,9 +77,6 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        {/* {window.location.pathname === '/landing' ? null : (
-          
-        )} */}
         <NavBar login={this.state.loggedInStatus} user={this.state.user} />
         <BrowserRouter>
           <Switch>
@@ -113,22 +108,19 @@ class App extends Component {
                 exact
                 path={'/signup'}
               />
+
               <Route
                 exact
                 path={'/'}
-                render={(props) =>
-                  this.state.loggedIn ? (
-                    <Home
-                      {...props}
-                      loggedInStatus={this.state.loggedInStatus}
-                      handleLogout={this.handleLogout}
-                      handleLogoutClick={this.handleLogoutClick}
-                      user={this.state.user}
-                    />
-                  ) : (
-                    <Redirect to='/landing' />
-                  )
-                }
+                render={(props) => (
+                  <Home
+                    {...props}
+                    loggedInStatus={this.state.loggedInStatus}
+                    handleLogout={this.handleLogout}
+                    handleLogoutClick={this.handleLogoutClick}
+                    user={this.state.user}
+                  />
+                )}
               />
             </div>
           </Switch>

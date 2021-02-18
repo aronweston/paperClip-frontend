@@ -5,7 +5,6 @@ const LoginController = (props) => {
     return null;
   } else {
     if (props.login === 'LOGGED_IN') {
-      //only show the login profile
       return (
         <div>
           <a id='profile-image' href='/profile'>
@@ -14,7 +13,6 @@ const LoginController = (props) => {
         </div>
       );
     } else {
-      //login button
       return (
         <a className='btn btn-primary' href='/login'>
           Login
