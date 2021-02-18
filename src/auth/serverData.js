@@ -11,6 +11,7 @@ export const SESSIONS = 'http://localhost:3000//sessions';
 export const LOGGED_IN = 'http://localhost:3000//logged_in';
 export const LOGOUT = 'http://localhost:3000//logout';
 export const REGISTRATIONS = 'http://localhost:3000/registrations';
+export const USERS = 'http://localhost:3000/users';
 export const HEADERS = {
   'Content-Type': 'application/json',
   Accept: 'application/json',
