@@ -5,9 +5,9 @@ const Clip = (props) => {
 	if (props && props.clips === null) {
 		return "";
 	} else {
-		console.log(props);
-		console.log("heretop", props.clips[0].username);
-		console.log("here", props.clips[1].text);
+		// console.log(props);
+		// console.log("heretop", props.clips[0].username);
+		// console.log("here", props.clips[1].text);
 		return (
 			<div>
 				{props.clips.map((c) => {
