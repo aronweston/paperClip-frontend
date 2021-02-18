@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { LOGOUT } from '../auth/serverData';
-import Platform from '../Home/Platform';
+import Platform from '../home/Platform';
 import axios from 'axios';
 
 class Home extends Component {
