@@ -85,7 +85,7 @@ export class Chat extends Component {
               name='message-input'
               onChange={this._handleChatInputChange}
               placeholder="What's on your mind?"
-              value={this.state.chatInput}
+              value={this.state.data.text}
               onKeyPress={this.handleKeyPress}
               autoFocus
             />
