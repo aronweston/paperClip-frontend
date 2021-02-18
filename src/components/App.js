@@ -1,24 +1,25 @@
-import React, { Component } from 'react';
-import { LOGGED_IN } from '../auth/serverData';
-import { Redirect, BrowserRouter, Route, Switch } from 'react-router-dom';
-import axios from 'axios';
-import '../app.css';
-import '../aron.css';
-import '../zoha.css';
+import React, { Component } from "react";
+import { LOGGED_IN } from "../auth/serverData";
+import { Redirect, BrowserRouter, Route, Switch } from "react-router-dom";
+import axios from "axios";
+import "../app.css";
+import "../aron.css";
+import "../zoha.css";
 
 //Pages & Components
-import NavBar from './NavBar';
-import Home from '../pages/Home';
-import Landing from '../pages/Landing';
-import Login from '../pages/LogIn';
-import SignUp from '../pages/SignUp';
+import NavBar from "./NavBar";
+import Home from "../pages/Home";
+import Landing from "../pages/Landing";
+import Login from "../pages/LogIn";
+import SignUp from "../pages/SignUp";
+import UserProfile from "../pages/UserProfile";
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      loggedInStatus: 'NOT_LOGGED_IN',
+      loggedInStatus: "NOT_LOGGED_IN",
       user: {},
       loggedIn: false,
     };
@@ -33,25 +34,25 @@ class App extends Component {
       .then((response) => {
         if (
           response.data.logged_in &&
-          this.state.loggedInStatus === 'NOT_LOGGED_IN'
+          this.state.loggedInStatus === "NOT_LOGGED_IN"
         ) {
           this.setState({
-            loggedInStatus: 'LOGGED_IN',
+            loggedInStatus: "LOGGED_IN",
             user: response.data.user,
           });
         } else if (
           !response.data.logged_in &&
-          this.state.loggedInStatus === 'LOGGED_IN'
+          this.state.loggedInStatus === "LOGGED_IN"
         ) {
           this.setState({
-            loggedInStatus: 'NOT_LOGGED_IN',
+            loggedInStatus: "NOT_LOGGED_IN",
             user: {},
             loggedIn: true,
           });
         }
       })
       .catch((error) => {
-        console.log('check login error', error);
+        console.log("check login error", error);
       });
   }
 
@@ -61,14 +62,14 @@ class App extends Component {
 
   handleLogout() {
     this.setState({
-      loggedInStatus: 'NOT_LOGGED_IN',
+      loggedInStatus: "NOT_LOGGED_IN",
       user: {},
     });
   }
 
   handleLogin(data) {
     this.setState({
-      loggedInStatus: 'LOGGED_IN',
+      loggedInStatus: "LOGGED_IN",
       user: data.user,
       loggedIn: true,
     });
@@ -76,12 +77,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className='App'>
+      <div className="App">
         <NavBar login={this.state.loggedInStatus} user={this.state.user} />
         <BrowserRouter>
           <Switch>
-            <Route component={Landing} path='/landing' exact />
-            <div className='main-container'>
+            {/* {this.props.location.pathname === "/signup" ||
+            this.props.location.pathname === "/landing" ? (
+              ""
+            ) : (
+              <NavBar />
+            )} */}
+
+            <Route component={Landing} path="/landing" exact />
+            <div className="main-container">
               <Route
                 render={(props) => (
                   <Login
@@ -89,10 +97,11 @@ class App extends Component {
                     handleLogin={this.handleLogin}
                     handleLogout={this.handleLogout}
                     loggedInStatus={this.state.loggedInStatus}
+                    user={this.state.user}
                   />
                 )}
                 exact
-                path={'/login'}
+                path={"/login"}
               />
               <Route
                 render={(props) => (
@@ -101,14 +110,15 @@ class App extends Component {
                     handleLogin={this.handleLogin}
                     handleLogout={this.handleLogout}
                     loggedInStatus={this.state.loggedInStatus}
+                    user={this.state.user}
                   />
                 )}
                 exact
-                path={'/signup'}
+                path={"/signup"}
               />
               <Route
                 exact
-                path={'/'}
+                path={"/"}
                 render={(props) => (
                   <Home
                     {...props}
