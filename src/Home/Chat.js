@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { API_ROOT, HEADERS, SERVER_URL } from '../auth/serverData';
+import { ROOT, HEADERS, MESSAGES } from '../auth/serverData';
 import JumpOutButton from './Chat/JumpOutButton';
 import MessagesArea from './Chat/MessagesArea';
 import SendButton from './Chat/SendButton';
@@ -19,7 +19,7 @@ export class Chat extends Component {
     };
 
     const fetchMessages = () => {
-      axios.get(SERVER_URL).then((response) => {
+      axios.get(MESSAGES).then((response) => {
         this.setState({ messages: response.data });
         this.setState({ set: true });
         setTimeout(fetchMessages, 500);
@@ -33,12 +33,27 @@ export class Chat extends Component {
 
   _handleChatSend(e) {
     e.preventDefault();
+
+    if (this.state.data.text === '') {
+      console.log('type something you numpty');
+      return null;
+    }
+
     axios({
       method: 'POST',
-      url: `${API_ROOT}/messages`,
+      url: `${ROOT}/messages`,
       headers: HEADERS,
       data: this.state.data,
     }).catch((err) => console.log(err));
+
+    //Clear the form input post send
+    this.setState({
+      data: {
+        text: '',
+        user_id: this.props.user.id,
+        chat_id: 1,
+      },
+    });
   }
 
   _handleChatInputChange(e) {
@@ -50,6 +65,12 @@ export class Chat extends Component {
       },
     });
   }
+
+  handleKeyPress = (e) => {
+    if (e.which === 13 && !e.shiftKey) {
+      this._handleChatSend(e);
+    }
+  };
 
   render() {
     return (
@@ -72,13 +93,15 @@ export class Chat extends Component {
               name='message-input'
               onChange={this._handleChatInputChange}
               placeholder="What's on your mind?"
-              value={this.state.chatInput}
+              value={this.state.data.text}
+              onKeyPress={this.handleKeyPress}
+              autoFocus
             />
             <SendButton />
           </form>
           <JumpOutButton
             onClick={() => {
-              console.log('add logout to me');
+              this.props.handleLogout();
             }}
           />
         </div>

@@ -11,7 +11,10 @@ class Platform extends Component {
           user={this.props.user}
           handleLogout={this.props.handleLogout}
         />
-        <MainPanel user={this.props.user} />
+        <MainPanel
+          user={this.props.user}
+          handleLogout={this.props.handleLogout}
+        />
       </>
     );
   }
