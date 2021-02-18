@@ -33,21 +33,27 @@ export class Chat extends Component {
 
   _handleChatSend(e) {
     e.preventDefault();
-    if (e.target.value !== '') {
-      axios({
-        method: 'POST',
-        url: `${ROOT}/messages`,
-        headers: HEADERS,
-        data: this.state.data,
-      }).catch((err) => console.log(err));
-      this.setState({
-        data: {
-          text: '',
-          user_id: this.props.user.id,
-          chat_id: 1,
-        },
-      });
+
+    if (this.state.data.text === '') {
+      console.log('type something you numpty');
+      return null;
     }
+
+    axios({
+      method: 'POST',
+      url: `${ROOT}/messages`,
+      headers: HEADERS,
+      data: this.state.data,
+    }).catch((err) => console.log(err));
+
+    //Clear the form input post send
+    this.setState({
+      data: {
+        text: '',
+        user_id: this.props.user.id,
+        chat_id: 1,
+      },
+    });
   }
 
   _handleChatInputChange(e) {
