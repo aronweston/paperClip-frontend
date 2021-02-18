@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { API_ROOT, HEADERS, SERVER_URL } from '../auth/serverData';
+import { ROOT, HEADERS, MESSAGES } from '../auth/serverData';
 import JumpOutButton from './Chat/JumpOutButton';
 import MessagesArea from './Chat/MessagesArea';
 import SendButton from './Chat/SendButton';
@@ -19,7 +19,7 @@ export class Chat extends Component {
     };
 
     const fetchMessages = () => {
-      axios.get(SERVER_URL).then((response) => {
+      axios.get(MESSAGES).then((response) => {
         this.setState({ messages: response.data });
         this.setState({ set: true });
         setTimeout(fetchMessages, 500);
@@ -35,7 +35,7 @@ export class Chat extends Component {
     e.preventDefault();
     axios({
       method: 'POST',
-      url: `${API_ROOT}/messages`,
+      url: `${ROOT}/messages`,
       headers: HEADERS,
       data: this.state.data,
     }).catch((err) => console.log(err));
@@ -72,13 +72,13 @@ export class Chat extends Component {
               name='message-input'
               onChange={this._handleChatInputChange}
               placeholder="What's on your mind?"
-              value={this.state.chatInput}
+              value={this.state.data.text}
             />
             <SendButton />
           </form>
           <JumpOutButton
             onClick={() => {
-              console.log('add logout to me');
+              this.props.handleLogout();
             }}
           />
         </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Platform from '../home/Platform';
+import { LOGOUT } from '../auth/serverData';
+import Platform from '../Home/Platform';
 import axios from 'axios';
 
 class Home extends Component {
@@ -9,23 +10,19 @@ class Home extends Component {
     this.state = {
       user: {},
     };
-    console.log(props);
-    this.SERVER_URL = 'http://localhost:3000/logout';
   }
 
   handleLogoutClick = () => {
     axios
-      .delete(this.SERVER_URL, { withCredentials: true })
+      .delete(LOGOUT, { withCredentials: true })
       .then(this.props.handleLogout)
       .catch((error) => {
         console.log('logout error', error);
       });
   };
 
-  // if (this.props.loggedInStatus === 'NOT_LOGGED_IN') {
-  // return <Redirect to='/login' />;
-
   render() {
+    // if (this.props.loggedInStatus === 'LOGGED_IN') {
     return (
       <>
         <div className='platform-container'>
@@ -37,7 +34,9 @@ class Home extends Component {
         </div>
       </>
     );
+    // } else {
+    //   return <Redirect to='/login' />;
+    // }
   }
 }
-
 export default Home;
