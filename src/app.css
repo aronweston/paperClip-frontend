@@ -315,7 +315,6 @@ li > a:hover {
 }
 
 .bio {
-  margin-top: 10px;
   color: var(--tertiary);
   font-size: var(--font-medium-large);
 }
@@ -324,10 +323,6 @@ li > a:hover {
   bottom: 0;
   width: 50%;
   align-self: center;
-}
-
-.side-panel-top-container > h2 {
-  margin-bottom: 35px;
 }
 
 
