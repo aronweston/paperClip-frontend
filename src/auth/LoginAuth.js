@@ -1,66 +1,59 @@
-<<<<<<< HEAD
 import React, { Component } from 'react';
 import LoginErrorMessage from './LoginErrorMessage';
 import { SESSIONS } from '../auth/serverData';
 import axios from 'axios';
-=======
-import React, { Component } from "react";
-import ErrorMessage from "../auth/ErrorMessage";
-import { SESSIONS } from "../auth/serverData";
-import axios from "axios";
->>>>>>> 2b79d9f6edbdad5595172ba3915022c24076ce28
 
 export class LoginAuth extends Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.state = {
-			username: "",
-			password: "",
-			error: "",
-		};
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-	}
+    this.state = {
+      username: '',
+      password: '',
+      error: '',
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-	handleChange(event) {
-		this.setState({
-			[event.target.name]: event.target.value,
-		});
-	}
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
 
-	handleSubmit(event) {
-		event.preventDefault();
-		const { username, password } = this.state;
-		axios
-			.post(
-				SESSIONS,
-				{
-					user: {
-						username,
-						password,
-					},
-				},
-				{ withCredentials: true }
-			)
-			.then((response) => {
-				console.log(response);
-				if (response.data.status === 401) {
-					this.setState({
-						error: response.data.error,
-						username: "",
-						password: "",
-					});
-				} else {
-					if (response.data.logged_in) {
-						this.props.handleSuccessfulAuth(response.data);
-					}
-				}
-			})
-			.catch((error) => {
-				console.log("login error", error);
-			});
-	}
+  handleSubmit(event) {
+    event.preventDefault();
+    const { username, password } = this.state;
+    axios
+      .post(
+        SESSIONS,
+        {
+          user: {
+            username,
+            password,
+          },
+        },
+        { withCredentials: true }
+      )
+      .then((response) => {
+        console.log(response);
+        if (response.data.status === 401) {
+          this.setState({
+            error: response.data.error,
+            username: '',
+            password: '',
+          });
+        } else {
+          if (response.data.logged_in) {
+            this.props.handleSuccessfulAuth(response.data);
+          }
+        }
+      })
+      .catch((error) => {
+        console.log('login error', error);
+      });
+  }
 
   render() {
     return (
