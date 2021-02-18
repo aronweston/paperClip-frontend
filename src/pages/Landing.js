@@ -14,17 +14,17 @@ const Landing = () => {
           <img className='landing-logo' src={Logo} />
           paperClip
         </Link>
-        <h3>Clip your destiny away</h3>
+        <h3>clip your destiny away</h3>
         <div className='landing-profile'>
           <Link className='btn btn-primary' to='/login'>
-            Login
+            login
           </Link>
           <Link className='btn btn-primary' to='/signup'>
-            Sign up
+            sign up
           </Link>
         </div>
+        <img className="landing-svg" src={LandingImage} alt='Welcome to 📎paperClip!' />
       </div>
-      <img src={LandingImage} alt='' />
     </>
   );
 };
