@@ -39,6 +39,13 @@ export class Chat extends Component {
       headers: HEADERS,
       data: this.state.data,
     }).catch((err) => console.log(err));
+    this.setState({
+      data: {
+        text: '',
+        user_id: this.props.user.id,
+        chat_id: 1,
+      },
+    });
   }
 
   _handleChatInputChange(e) {
@@ -49,6 +56,12 @@ export class Chat extends Component {
         chat_id: 1,
       },
     });
+  }
+
+  handleKeyPress = (e) => {
+    if(e.which === 13 && !e.shiftKey) {
+        this._handleChatSend(e);
+    }
   }
 
   render() {
@@ -73,6 +86,8 @@ export class Chat extends Component {
               onChange={this._handleChatInputChange}
               placeholder="What's on your mind?"
               value={this.state.chatInput}
+              onKeyPress={this.handleKeyPress}
+              autoFocus
             />
             <SendButton />
           </form>

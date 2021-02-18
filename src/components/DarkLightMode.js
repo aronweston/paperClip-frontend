@@ -20,7 +20,7 @@ function App() {
       <>
         <GlobalStyles />
         <p>{theme} mode</p>
-        <label class="switch"><input onClick={toggleTheme} type="checkbox" />   <div ></div>
+        <label className="switch"><input onClick={toggleTheme} type="checkbox" />   <div ></div>
         </label>
         <footer>
         </footer>

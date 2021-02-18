@@ -2,7 +2,7 @@ import React from 'react';
 
 const SendButton = () => {
   return (
-    <button className='send-button'>
+    <button type="submit" className='send-button'>
       <svg
         className='send-icon'
         width='48'
