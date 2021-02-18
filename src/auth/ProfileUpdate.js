@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { USERS } from '../auth/serverData';
 
-const SERVER_URL = 'http://localhost:3000/';
-
 export class ProfileUpdate extends Component {
   constructor(props) {
     super(props);
@@ -30,8 +28,8 @@ export class ProfileUpdate extends Component {
     const { username, email, password, password_confirmation } = this.state;
 
     axios
-      .post(
-        USERS,
+      .put(
+        `${USERS}/${this.props.user.id}`,
         {
           user: {
             username,
@@ -43,6 +41,7 @@ export class ProfileUpdate extends Component {
         { withCredentials: true }
       )
       .then((response) => {
+        console.log(response);
         if (response.data.status === 'created') {
           this.props.handleSuccessfulAuth(response.data);
         }
@@ -55,7 +54,8 @@ export class ProfileUpdate extends Component {
   render() {
     return (
       <>
-        <h1>Update profile</h1>
+        <h1>It's time for a change.</h1>
+
         <form onSubmit={this.handleSubmit}>
           <input
             type='text'

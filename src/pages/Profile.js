@@ -10,18 +10,24 @@ import '../zoha.css';
 export class Profile extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      update: false,
+    };
     this.showUpdate = this.showUpdate.bind(this);
   }
 
   showUpdate() {
-    return <ProfileUpdate />;
+    this.setState({ update: true });
   }
 
   render() {
     return (
       <div className='login-signup-container'>
-        <ProfileInfo user={this.props.user} onClick={this.showUpdate} />
+        {this.state.update ? (
+          <ProfileUpdate user={this.props.user} />
+        ) : (
+          <ProfileInfo user={this.props.user} onClick={this.showUpdate} />
+        )}
       </div>
     );
   }
