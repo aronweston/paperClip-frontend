@@ -281,7 +281,7 @@ li > a:hover {
   overflow: auto;
   display: flex;
   flex-direction: column;
-
+  justify-content: space-evenly;
 }
 
 .side-panel-bottom-container {
@@ -322,6 +322,8 @@ li > a:hover {
 
 .edit-profile {
   bottom: 0;
+  width: 50%;
+  align-self: center;
 }
 
 .side-panel-top-container > h2 {
@@ -500,6 +502,12 @@ textarea {
 .clip-info {
   font-size: var(--font-small);
   color: rgba(var(--primary-rgb), 0.5);
+  margin: -5px 0 10px 20px;
+}
+
+.clip-info-recipient {
+  font-size: var(--font-small);
+  color: rgba(var(--secondary-rgb), 0.5);
   margin: -5px 0 10px 20px;
 }
 
