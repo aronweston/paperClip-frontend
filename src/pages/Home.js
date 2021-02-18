@@ -1,42 +1,47 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import { LOGOUT } from '../auth/serverData';
-import Platform from '../Home/Platform';
-import axios from 'axios';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import { LOGOUT, LOGGED_IN } from "../auth/serverData";
+import Platform from "../home/Platform";
+import axios from "axios";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: {},
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			user: {},
+		};
 
-  handleLogoutClick = () => {
-    axios
-      .delete(LOGOUT, { withCredentials: true })
-      .then(this.props.handleLogout)
-      .catch((error) => {
-        console.log('logout error', error);
-      });
-  };
+		// const getUserData = () => {
+		// 	axios.get(LOGGED_IN, { withCredentials: true }).then((response) => {
+		// 		this.setState({
+		// 			user: response.data.user,
+		// 		});
+		// 	});
+		// };
+		// getUserData();
+	}
 
-  render() {
-    if (!this.props.loggedInStatus === 'LOGGED_IN') {
-      return <Redirect to='/login' />;
-    }
+	handleLogoutClick = () => {
+		axios
+			.delete(LOGOUT, { withCredentials: true })
+			.then(this.props.handleLogout)
+			.catch((error) => {
+				console.log("logout error", error);
+			});
+	};
 
-    return (
-      <>
-        <div className='platform-container'>
-          <Platform
-            login={this.props.login}
-            user={this.props.user}
-            handleLogout={this.props.handleLogout}
-          />
-        </div>
-      </>
-    );
-  }
+	render() {
+		if (!this.props.loggedInStatus === "LOGGED_IN") {
+			return <Redirect to="/login" />;
+		}
+
+		return (
+			<>
+				<div className="platform-container">
+					<Platform login={this.props.login} user={this.props.user} handleLogout={this.props.handleLogout} />
+				</div>
+			</>
+		);
+	}
 }
 export default Home;
