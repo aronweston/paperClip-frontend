@@ -313,6 +313,7 @@ li > a:hover {
   object-fit: cover;
   display: inline-block;
   transition: 0.25s;
+  margin-top: -12px;
 }
 
 .profile-letter:hover {

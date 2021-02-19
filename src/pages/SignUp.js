@@ -34,7 +34,6 @@ export class SignUp extends Component {
   render() {
     return (
       <div className='login-signup-container'>
-        <h2>Status: {this.props.loggedInStatus}</h2>
         <Registration handleSuccessfulAuth={this.handleSuccessfulAuth} />
       </div>
     );
