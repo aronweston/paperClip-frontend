@@ -32,7 +32,6 @@ export class Login extends Component {
   render() {
     return (
       <div className='login-signup-container'>
-        {/* <h2>Status: {this.props.loggedInStatus}</h2> */}
         <LoginAuth handleSuccessfulAuth={this.handleSuccessfulAuth} />
         <a className='btn btn-primary' onClick={() => this.handleLogoutClick()}>
           logout
