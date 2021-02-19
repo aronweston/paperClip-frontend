@@ -59,10 +59,8 @@ export class LoginAuth extends Component {
     return (
       <>
         <h1>Login</h1>
-        <p>
-          Test with user:<strong> ac</strong> and password:{' '}
-          <strong>chicken</strong>
-        </p>
+        {/*<p>Test with user:<strong> ac</strong> and password:{' '}
+          <strong>chicken</strong></p>*/}
         {this.state.error.length > 1 && (
           <ErrorMessage class={'error-box'} message={this.state.error} />
         )}
@@ -83,7 +81,7 @@ export class LoginAuth extends Component {
             onChange={this.handleChange}
             required
           />
-          <button type='submit'>Login</button>
+          <button type='submit'>login</button>
         </form>
       </>
     );
