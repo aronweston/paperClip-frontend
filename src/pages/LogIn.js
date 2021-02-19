@@ -27,6 +27,7 @@ export class Login extends Component {
       .catch((error) => {
         console.log('logout error', error);
       });
+    this.props.history.push('/login');
   }
 
   render() {

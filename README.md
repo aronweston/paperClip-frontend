@@ -14,7 +14,7 @@ Real time chat with the 📎 paperClip community.
 
 ![Chat with users](./src/assets/1.png)
 
--------
+---
 
 ## Clip user messages 📎
 
@@ -22,7 +22,7 @@ Clip user messages that you like on your own clipboard by simply clicking the �
 
 ![Clip user messages](./src/assets/3.png)
 
--------
+---
 
 ### Dark / Light Mode 🌚🌝
 
@@ -30,7 +30,7 @@ Chat in light or dark mode!
 
 ![Dark and Light Mode](./src/assets/2.png)
 
--------
+---
 
 ## Technical breakdown
 
@@ -50,9 +50,9 @@ Also a huge thank you to DinosoftLabs, Scott Desmond, iconsmind.com, i cons, Zac
 
 Brought to you by:
 
-- Aron Weston
 - Andre Anggono
-- Zoha Fard
 - Jim Carlton
+- Zoha Fard
+- Aron Weston
 
 Special thank you to Joel, Stacey and Guillaume in the GA crew for helping us through the build for this project!
