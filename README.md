@@ -36,6 +36,8 @@ Chat in light or dark mode!
 
 📎 paperClip was built using React for the frontend and Ruby on Rails for the backend. The backend is hosted on Heroku with the frontend residing on Netlify.
 
+Link to backend [here](https://github.com/AndreAnggono/paperClip-backend/).
+
 ### Models
 
 It combines and relates user, chat, message and clip models.
