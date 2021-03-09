@@ -3,6 +3,7 @@ import { USER, LOGGED_IN } from '../auth/serverData';
 import MainPanel from './MainPanel';
 import SidePanel from './SidePanel';
 import axios from 'axios';
+import _ from 'underscore';
 
 class Platform extends Component {
   constructor(props) {
@@ -24,7 +25,14 @@ class Platform extends Component {
   }
 
   componentDidMount() {
-    this.fetchClips();
+    setTimeout(() => {
+      if (_(this.props.user).isEmpty({})) {
+        this.props.history.push('/landing');
+        console.log('empty');
+      } else {
+        this.fetchClips();
+      }
+    }, 4000);
   }
 
   render() {

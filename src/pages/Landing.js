@@ -23,7 +23,11 @@ const Landing = () => {
             sign up
           </Link>
         </div>
-        <img className="landing-svg" src={LandingImage} alt='Welcome to 📎paperClip!' />
+        <img
+          className='landing-svg'
+          src={LandingImage}
+          alt='Welcome to 📎paperClip!'
+        />
       </div>
     </>
   );
