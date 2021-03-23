@@ -1,12 +1,13 @@
-export const ROOT = 'https://paperclip-b.herokuapp.com/';
-export const MESSAGES = 'https://paperclip-b.herokuapp.com/messages.json';
-export const SESSIONS = 'https://paperclip-b.herokuapp.com/sessions';
-export const LOGGED_IN = 'https://paperclip-b.herokuapp.com/logged_in';
-export const LOGOUT = 'https://paperclip-b.herokuapp.com/logout';
-export const REGISTRATIONS = 'https://paperclip-b.herokuapp.com/registrations';
-export const USERS = 'https://paperclip-b.herokuapp.com/users';
-export const USER = 'https://paperclip-b.herokuapp.com/user';
-export const CLIPS = 'https://paperclip-b.herokuapp.com/clips';
+export const ROOT = 'https://paperclipapp-api.herokuapp.com/';
+export const MESSAGES = 'https://paperclipapp-api.herokuapp.com/messages.json';
+export const SESSIONS = 'https://paperclipapp-api.herokuapp.com/sessions';
+export const LOGGED_IN = 'https://paperclipapp-api.herokuapp.com/logged_in';
+export const LOGOUT = 'https://paperclipapp-api.herokuapp.com/logout';
+export const REGISTRATIONS =
+  'https://paperclipapp-api.herokuapp.com/registrations';
+export const USERS = 'https://paperclipapp-api.herokuapp.com/users';
+export const USER = 'https://paperclipapp-api.herokuapp.com/user';
+export const CLIPS = 'https://paperclipapp-api.herokuapp.com/clips';
 
 // export const ROOT = 'http://localhost:3000/';
 // export const MESSAGES = 'http://localhost:3000/messages.json';
